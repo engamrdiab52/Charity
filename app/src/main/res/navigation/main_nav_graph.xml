@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/currentBalanceFragment"
+        android:name="com.amrabdelhamiddiab.charity.presentation.currentBalance.CurrentBalanceFragment"
+        android:label="CurrentBalanceFragment" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.amrabdelhamiddiab.charity.presentation.history.HistoryFragment"
+        android:label="HistoryFragment" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.amrabdelhamiddiab.charity.presentation.home.HomeFragment"
+        android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/profitsFragment"
+        android:name="com.amrabdelhamiddiab.charity.presentation.profits.ProfitsFragment"
+        android:label="ProfitsFragment" />
+</navigation>
