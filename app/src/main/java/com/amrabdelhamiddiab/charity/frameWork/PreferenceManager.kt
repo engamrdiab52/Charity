@@ -6,26 +6,158 @@ import com.amrabdelhamiddiab.core.data.IPreferenceHelper
 
 class PreferenceManager constructor(context: Context) : IPreferenceHelper {
     companion object {
-        const val USER_LOGGED_IN = "userLoggedIn"
+        const val MONEY_VALUE = "moneyValue"
+        const val HELP_VALUE = "helpValue"
+        const val KIND_VALUE = "kindValue"
+        const val PRAY_VALUE = "prayValue"
+        const val SMILE_VALUE = "smileValue"
+        const val SHARE_VALUE = "shareValue"
+
+        const val MONEY_VALUE_MAX = "moneyValueMax"
+        const val HELP_VALUE_MAX = "helpValueMax"
+        const val KIND_VALUE_MAX = "kindValueMax"
+        const val PRAY_VALUE_MAX = "prayValueMax"
+        const val SMILE_VALUE_MAX = "smileValueMax"
+        const val SHARE_VALUE_MAX = "shareValueMax"
+        const val CURRENT_TIME = "currentTime"
     }
-    private val PREFS_NAME = "PuaPreferences"
+
+    private val PREFS_NAME = "CharityPreferences"
     private var preferences: SharedPreferences =
         context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
 
-    override fun setUserLoggedIn(loggedIn: Boolean) {
-        preferences[USER_LOGGED_IN] = loggedIn
+    override fun setMoneyValue(moneyValue: Int) {
+        preferences[MONEY_VALUE] = moneyValue
     }
 
-    override fun getUserLoggedIn(): Boolean {
-        return preferences[USER_LOGGED_IN] ?: false
+    override fun getMoneyValue(): Int {
+        return when (val value: Int? = preferences[MONEY_VALUE]) {
+            -1 -> 0
+            null -> 0
+            else -> value
+        }
     }
 
+    override fun setHelpValue(moneyValue: Int) {
+        preferences[HELP_VALUE] = moneyValue
+    }
+
+    override fun getHelpValue(): Int {
+        return when (val value: Int? = preferences[HELP_VALUE]) {
+            -1 -> 0
+            null -> 0
+            else -> value
+        }
+    }
+
+    override fun setKindValue(moneyValue: Int) {
+        preferences[KIND_VALUE] = moneyValue
+    }
+
+    override fun getKindValue(): Int {
+        return when (val value: Int? = preferences[KIND_VALUE]) {
+            -1 -> 0
+            null -> 0
+            else -> value
+        }
+    }
+
+    override fun setPrayValue(moneyValue: Int) {
+        preferences[PRAY_VALUE] = moneyValue
+    }
+
+    override fun getPrayValue(): Int {
+        return when (val value: Int? = preferences[PRAY_VALUE]) {
+            -1 -> 0
+            null -> 0
+            else -> value
+        }
+    }
+
+    override fun setSmileValue(moneyValue: Int) {
+        preferences[SMILE_VALUE] = moneyValue
+    }
+
+    override fun getSmileValue(): Int {
+        return when (val value: Int? = preferences[SMILE_VALUE]) {
+            -1 -> 0
+            null -> 0
+            else -> value
+        }
+    }
+
+    override fun setShareValue(moneyValue: Int) {
+        preferences[SHARE_VALUE] = moneyValue
+    }
+
+    override fun getShareValue(): Int {
+        return when (val value: Int? = preferences[SHARE_VALUE]) {
+            -1 -> 0
+            null -> 0
+            else -> value
+        }
+    }
+
+    ///////////////////////////
+    override fun setMoneyValueMax(moneyValueMax: Int) {
+        preferences[MONEY_VALUE_MAX] = moneyValueMax
+    }
+
+    override fun getMoneyValueMax(): Int {
+        return preferences[MONEY_VALUE_MAX] ?: 0
+    }
+
+    override fun setHelpValueMax(moneyValueMax: Int) {
+        preferences[HELP_VALUE_MAX] = moneyValueMax
+    }
+
+    override fun getHelpValueMax(): Int {
+        return preferences[HELP_VALUE_MAX] ?: 0
+    }
+
+    override fun setKindValueMax(moneyValueMax: Int) {
+        preferences[KIND_VALUE_MAX] = moneyValueMax
+    }
+
+    override fun getKindValueMax(): Int {
+        return preferences[KIND_VALUE_MAX] ?: 0
+    }
+
+    override fun setPrayValueMax(moneyValueMax: Int) {
+        preferences[PRAY_VALUE_MAX] = moneyValueMax
+    }
+
+    override fun getPrayValueMax(): Int {
+        return preferences[PRAY_VALUE_MAX] ?: 0
+    }
+
+    override fun setSmileValueMax(moneyValueMax: Int) {
+        preferences[SMILE_VALUE_MAX] = moneyValueMax
+    }
+
+    override fun getSmileValueMax(): Int {
+        return preferences[SMILE_VALUE_MAX] ?: 0
+    }
+
+    override fun setShareValueMax(moneyValueMax: Int) {
+        preferences[SHARE_VALUE_MAX] = moneyValueMax
+    }
+
+    override fun getShareValueMax(): Int {
+        return preferences[SHARE_VALUE_MAX] ?: 0
+    }
+
+    override fun setCurrentTime(moneyValueMax: Long) {
+        preferences[CURRENT_TIME] = moneyValueMax
+    }
+
+    override fun getPreviousSavedTime(): Long {
+        return preferences[CURRENT_TIME] ?: 0L
+    }
 
     override fun clearPrefs() {
         preferences.edit().clear().apply()
     }
-
-
 
 
     private inline fun SharedPreferences.edit(operation: (SharedPreferences.Editor) -> Unit) {
