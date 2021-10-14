@@ -17,6 +17,12 @@
     <string name="how_often_do_you_intend_to_smile_with_the_intention_of_charity">How often do you intend to smile with the intention of charity?</string>
     <string name="for_the_next_30_days_from_now">For the next 30 days from now</string>
     <string name="how_often_do_you_intend_to_talk_about_this_app_whether_in_real_or_virtual_life_in_the_belief_that_the_one_who_directs_to_goodness_is_like_the_one_who_does_it">How often do you intend to talk about this app, whether in your real life or social networking sites, in the belief that The one who directs to goodness is like the one who does it?</string>
+    <string name="money_description">"How much money do you intend to spend within a month from now?"</string>
+    <string name="help_description">"How much help do you intend to give for charity at home, work, friends, relatives, neighbours, or someone you don\'t know?"</string>
+    <string name="kind_description">"How many kind words do you intend to offer as a charity, whether in your real life or social networking sites?"</string>
+    <string name="pray_description">"How often do you intend to pray for the good of others?"</string>
+    <string name="smile_description">"How often do you intend to smile with the intention of charity?"</string>
+    <string name="share_description">"How often do you intend to talk about this app, in the belief that The one who directs to goodness is like the one who does it?"</string>
     <string name="total">TOTAL:</string>
     <string name="start">START</string>
     <string name="status_bar">status bar</string>
@@ -40,10 +46,10 @@
     <string name="you_are_3_days_late">You are 3 days late</string>
     <string name="you_are_3_days_ahead">You are 3 days ahead</string>
     <string name="add">ADD</string>
+    <string name="edit_goal">Progress</string>
+    <string name="note">note</string>
     <string-array name="project_array">
         <item>start a new project</item>
         <item>Edit an existing project</item>
     </string-array>
-
-
 </resources>

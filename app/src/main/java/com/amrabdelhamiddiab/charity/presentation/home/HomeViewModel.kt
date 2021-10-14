@@ -8,6 +8,9 @@ import com.amrabdelhamiddiab.charity.frameWork.PreferenceManager
 
 class HomeViewModel(application: Application) : CharityViewModel(application) {
     private val preferencesHelper = PreferenceManager(application.applicationContext)
+    var fakeTime: Long = 0
+    var counterForFakeTime: Int = 0
+    //////////////////////////////////
     val moneyCurrentValue: Int get() = preferencesHelper.getMoneyValue()
     val helpCurrentValue: Int get() = preferencesHelper.getHelpValue()
     val kindCurrentValue: Int get() = preferencesHelper.getKindValue()
@@ -23,33 +26,7 @@ class HomeViewModel(application: Application) : CharityViewModel(application) {
     val smileMaxValue: Int get() = preferencesHelper.getSmileValueMax()
     val shareMaxValue: Int get() = preferencesHelper.getShareValueMax()
 
-    ///////////////////////////////
     val savedTime: Long get() = preferencesHelper.getPreviousSavedTime()
-
-    /*fun setMoneyValueMax(moneyValueMax: Int) {
-        preferencesHelper.setMoneyValueMax(moneyValueMax)
-    }
-
-    fun setHelpValueMax(helpValueMax: Int) {
-        preferencesHelper.setHelpValueMax(helpValueMax)
-    }
-
-    fun setKindValueMax(kindValueMax: Int) {
-        preferencesHelper.setKindValueMax(kindValueMax)
-    }
-
-    fun setPrayValueMax(prayValueMax: Int) {
-        preferencesHelper.setPrayValueMax(prayValueMax)
-    }
-
-    fun setSmileValueMax(smileValueMax: Int) {
-        preferencesHelper.setSmileValueMax(smileValueMax)
-    }
-
-    fun setShareValueMax(shareValueMax: Int) {
-        preferencesHelper.setShareValueMax(shareValueMax)
-    }*/
-
     ////////////////////////////
     fun setMoneyValue(moneyValue: Int) {
         preferencesHelper.setMoneyValue(moneyValue)
