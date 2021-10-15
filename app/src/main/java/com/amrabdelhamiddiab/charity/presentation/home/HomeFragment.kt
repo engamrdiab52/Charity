@@ -14,7 +14,6 @@ import com.amrabdelhamiddiab.charity.R
 import com.amrabdelhamiddiab.charity.databinding.FragmentHomeBinding
 import com.amrabdelhamiddiab.charity.frameWork.CharityViewModelFactory
 import com.amrabdelhamiddiab.charity.frameWork.HorizontalMarginItemDecoration
-import com.amrabdelhamiddiab.charity.frameWork.ViewPagerAdapter
 import com.amrabdelhamiddiab.charity.frameWork.targetScreenDataList
 import com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
 
@@ -97,6 +96,9 @@ class HomeFragment : Fragment() {
                     viewModel.counterForFakeTime = 0
                 }
                 viewModel.fakeTime += DAY
+                Log.d(TAG, "${viewModel.fakeTime} +  ${viewModel.counterForFakeTime}")
+                adapter.run { notifyDataSetChanged() }
+
                 true
             }
             else -> super.onOptionsItemSelected(item)

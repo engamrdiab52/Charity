@@ -51,21 +51,25 @@
             android:layout_marginBottom="90dp"
             android:contentDescription="@string/status_bar"
             android:elevation="4dp"
+            android:max="100"
+            app:trackColor="@color/orange_200"
+            app:indicatorColor="@color/orange_700"
             app:indicatorDirectionLinear="startToEnd"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:trackCornerRadius="5dp"
             app:trackThickness="8dp" />
+
         <TextView
             android:id="@+id/text_view_current_max_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toTopOf="@+id/progress_bar"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_status"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_status"
             tools:text="20/80" />
 
         <ImageView
@@ -84,11 +88,11 @@
             android:id="@+id/tv_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintEnd_toStartOf="@+id/image_view_completed"
-            app:layout_constraintTop_toBottomOf="@+id/progress_bar"
+            app:layout_constraintBottom_toTopOf="@+id/progress_bar"
+            app:layout_constraintStart_toStartOf="parent"
             tools:text="You can edit the target" />
 
         <LinearLayout
@@ -102,21 +106,28 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_edit_goal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                app:elevation="4dp"
+                app:strokeWidth="3dp"
+                app:strokeColor="@color/blue_200"
+                android:layout_margin="4dp"
+                app:cornerRadius="16dp"
                 android:text="@string/edit_goal"
-                android:theme="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/write_note"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_margin="4dp"
+                app:cornerRadius="16dp"
                 android:text="@string/note"
-                android:theme="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

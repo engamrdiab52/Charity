@@ -4,9 +4,8 @@ import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.os.Build
-import com.amrabdelhamiddiab.charity.frameWork.CharityViewModel
 import com.amrabdelhamiddiab.charity.frameWork.CharityViewModelFactory
-import com.amrabdelhamiddiab.charity.frameWork.Constants.CHANNEL_ID_PERIOD_WORK
+import com.amrabdelhamiddiab.core.domain.Constants.CHANNEL_ID_PERIOD_WORK
 
 class CharityApp : Application() {
     override fun onCreate() {

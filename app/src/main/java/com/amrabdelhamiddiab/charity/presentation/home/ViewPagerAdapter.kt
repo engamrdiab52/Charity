@@ -1,4 +1,4 @@
-package com.amrabdelhamiddiab.charity.frameWork
+package com.amrabdelhamiddiab.charity.presentation.home
 
 import android.content.Context
 import android.text.Editable
@@ -18,16 +18,17 @@ import com.afollestad.materialdialogs.customview.customView
 import com.afollestad.materialdialogs.customview.getCustomView
 import com.amrabdelhamiddiab.charity.MainActivity.Companion.TAG
 import com.amrabdelhamiddiab.charity.R
-import com.amrabdelhamiddiab.charity.presentation.home.HomeFragment
-import com.amrabdelhamiddiab.charity.presentation.home.HomeViewModel
+import com.amrabdelhamiddiab.charity.frameWork.TargetScreenData
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.progressindicator.LinearProgressIndicator
 import com.google.android.material.textfield.TextInputEditText
+import kotlin.math.roundToInt
 
 class ViewPagerAdapter(
     private val targetList: List<TargetScreenData>,
     private val viewModel: HomeViewModel,
     private val context: Context,
-    private val onClickListener: ViewPagerAdapter.OnClickListener
+    private val onClickListener: OnClickListener
 
 ) :
     RecyclerView.Adapter<ViewPagerAdapter.ViewPagerHolder>() {
@@ -49,25 +50,41 @@ class ViewPagerAdapter(
         return targetList.size
     }
 
-  inner  class ViewPagerHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    override fun getItemViewType(position: Int): Int {
+        return when (position) {
+            0 -> MONEY
+            1 -> HELP
+            2 -> KIND
+            3 -> PRAY
+            4 -> SMILE
+            5 -> SHARE
+            else -> MONEY
+        }
+
+    }
+
+    inner class ViewPagerHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         private val ivSliderImage = itemView.findViewById<ImageView>(R.id.imageView)
         private val tvDescription = itemView.findViewById<TextView>(R.id.text_view_description)
-        private val progressIndicator =
+        private var progressIndicator =
             itemView.findViewById<LinearProgressIndicator>(R.id.progress_bar)
         private val currentRatio = itemView.findViewById<TextView>(R.id.text_view_current_max_value)
         private val statusTv = itemView.findViewById<TextView>(R.id.tv_status)
-        private val editGoalButton = itemView.findViewById<Button>(R.id.btn_edit_goal)
-      private val imageViewCompleted = itemView.findViewById<ImageView>(R.id.image_view_completed)
+        private val editGoalButton = itemView.findViewById<MaterialButton>(R.id.btn_edit_goal)
+        private val imageViewCompleted = itemView.findViewById<ImageView>(R.id.image_view_completed)
         fun bind(image: Int, viewModel: HomeViewModel, itemString: Int) {
-            when (image) {
-                R.drawable.money_image -> {
+            when (itemViewType) {
+                MONEY -> {
+
                     //////////////////////////////////////
                     "${viewModel.moneyCurrentValue}/${viewModel.moneyMaxValue}".also {
                         currentRatio.text = it
                     }
                     tvDescription.setText(R.string.money_description)
                     ivSliderImage.setImageResource(R.drawable.money_image)
+                    progressIndicator.setProgressCompat(((viewModel.moneyCurrentValue/viewModel.moneyMaxValue.toFloat())*100).roundToInt(), false)
+                   // progressIndicator.max = viewModel.moneyMaxValue
                     ///////////////////////////////////
                     estimateProgress(
                         viewModel.moneyCurrentValue, viewModel.moneyMaxValue, statusTv
@@ -79,17 +96,19 @@ class ViewPagerAdapter(
                             currentRatio,
                             viewModel.moneyMaxValue,
                             viewModel.moneyCurrentValue,
-                            image
+                            MONEY
                         )
                     }
                 }
-                R.drawable.help_image -> {
+                HELP -> {
                     /////////////////////////
                     "${viewModel.helpCurrentValue}/${viewModel.helpMaxValue}".also {
                         currentRatio.text = it
                     }
                     tvDescription.setText(R.string.help_description)
                     ivSliderImage.setImageResource(R.drawable.help_image)
+                    progressIndicator.setProgressCompat(((viewModel.helpCurrentValue/viewModel.helpMaxValue.toFloat())*100).roundToInt(), false)
+                  //  progressIndicator.max = viewModel.helpMaxValue
                     ////////////////////////
                     estimateProgress(
                         viewModel.helpCurrentValue,
@@ -103,17 +122,19 @@ class ViewPagerAdapter(
                             currentRatio,
                             viewModel.helpMaxValue,
                             viewModel.helpCurrentValue,
-                            image
+                            HELP
                         )
                     }
                 }
-                R.drawable.kind_image -> {
+                KIND -> {
                     /////////////////////////
                     "${viewModel.kindCurrentValue}/${viewModel.kindMaxValue}".also {
                         currentRatio.text = it
                     }
                     tvDescription.setText(R.string.kind_description)
                     ivSliderImage.setImageResource(R.drawable.kind_image)
+                    progressIndicator.setProgressCompat(((viewModel.kindCurrentValue/viewModel.kindMaxValue.toFloat())*100).roundToInt(), false)
+                   // progressIndicator.max = viewModel.kindMaxValue
                     /////////////////////////
                     estimateProgress(
                         viewModel.kindCurrentValue,
@@ -128,17 +149,20 @@ class ViewPagerAdapter(
                             currentRatio,
                             viewModel.kindMaxValue,
                             viewModel.kindCurrentValue,
-                            image
+                            KIND
                         )
+
                     }
                 }
-                R.drawable.pray_image -> {
+                PRAY -> {
                     /////////////////////////
                     "${viewModel.prayCurrentValue}/${viewModel.prayMaxValue}".also {
                         currentRatio.text = it
                     }
                     tvDescription.setText(R.string.pray_description)
                     ivSliderImage.setImageResource(R.drawable.pray_image)
+                    progressIndicator.setProgressCompat(((viewModel.prayCurrentValue/viewModel.prayMaxValue.toFloat())*100).roundToInt(), false)
+                  //  progressIndicator.max = viewModel.prayMaxValue
                     /////////////////////////
                     estimateProgress(
                         viewModel.prayCurrentValue,
@@ -152,17 +176,19 @@ class ViewPagerAdapter(
                             currentRatio,
                             viewModel.prayMaxValue,
                             viewModel.prayCurrentValue,
-                            image
+                            PRAY
                         )
                     }
                 }
-                R.drawable.smile_image -> {
+                SMILE -> {
                     /////////////////////////
                     "${viewModel.smileCurrentValue}/${viewModel.smileMaxValue}".also {
                         currentRatio.text = it
                     }
                     tvDescription.setText(R.string.smile_description)
                     ivSliderImage.setImageResource(R.drawable.smile_image)
+                    progressIndicator.setProgressCompat(((viewModel.smileCurrentValue/viewModel.smileMaxValue.toFloat())*100).roundToInt(), false)
+                   // progressIndicator.max = viewModel.smileMaxValue
                     /////////////////////////
                     estimateProgress(
                         viewModel.smileCurrentValue,
@@ -176,17 +202,19 @@ class ViewPagerAdapter(
                             currentRatio,
                             viewModel.smileMaxValue,
                             viewModel.smileCurrentValue,
-                            image
+                            SMILE
                         )
                     }
                 }
-                R.drawable.share_image -> {
+                SHARE -> {
                     /////////////////////////
                     "${viewModel.shareCurrentValue}/${viewModel.shareMaxValue}".also {
                         currentRatio.text = it
                     }
                     tvDescription.setText(R.string.share_description)
                     ivSliderImage.setImageResource(R.drawable.share_image)
+                    progressIndicator.setProgressCompat(((viewModel.shareCurrentValue/viewModel.shareMaxValue.toFloat())*100).roundToInt(), false)
+                   // progressIndicator.max = viewModel.shareMaxValue
                     /////////////////////////
                     estimateProgress(
                         viewModel.shareCurrentValue,
@@ -200,12 +228,13 @@ class ViewPagerAdapter(
                             currentRatio,
                             viewModel.shareMaxValue,
                             viewModel.shareCurrentValue,
-                            image
+                            SHARE
                         )
                     }
                 }
             }
         }
+
         private fun estimateProgress(currentValue: Int, maximumValue: Int, statusView: TextView) {
             val value = ((currentValue / maximumValue.toDouble()) * 100)
             val week = estimateWeek()
@@ -227,7 +256,7 @@ class ViewPagerAdapter(
                     value = 3
                 }
                 ((viewModel.savedTime + viewModel.fakeTime) - viewModel.savedTime) > (HomeFragment.DAY * 7 * 3) &&
-                        ((viewModel.savedTime + viewModel.fakeTime) - viewModel.savedTime) <= (HomeFragment.DAY * 7 * 4) -> {
+                        ((viewModel.savedTime + viewModel.fakeTime) - viewModel.savedTime) < ((HomeFragment.DAY * 7 * 4) + HomeFragment.DAY) -> {
                     value = 4
                 }
             }
@@ -265,8 +294,6 @@ class ViewPagerAdapter(
                     }
                 }
             }
-            //   Log.d(TAG, "writeTextStatus    $value   $n")
-
         }
 
         private fun displaySuccessDialog(
@@ -274,7 +301,7 @@ class ViewPagerAdapter(
             textView: TextView,
             maxValue: Int,
             currentValue: Int,
-            imageResource: Int
+            itemType: Int
         ) {
             var value = 0
             var valueString: String? = ""
@@ -284,8 +311,8 @@ class ViewPagerAdapter(
                 context
             ).customView(R.layout.layout_bottom_sheet).cornerRadius(8f)
                 .positiveButton(R.string.text_ok).onDismiss {
-                    when (imageResource) {
-                        R.drawable.money_image -> {
+                    when (itemType) {
+                        MONEY -> {
                             maxValueFromViewModel = viewModel.moneyMaxValue
                             if (!valueString.isNullOrBlank()) {
                                 if (value <= maxValueFromViewModel) {
@@ -305,13 +332,8 @@ class ViewPagerAdapter(
                                 }
                             }
                             valueFromViewModel = viewModel.moneyCurrentValue
-
-                            Log.d(
-                                TAG,
-                                valueFromViewModel.toString() + maxValueFromViewModel.toString()
-                            )
                         }
-                        R.drawable.help_image -> {
+                        HELP -> {
                             maxValueFromViewModel = viewModel.helpMaxValue
                             if (!valueString.isNullOrBlank()) {
                                 if (value <= maxValueFromViewModel) {
@@ -333,7 +355,7 @@ class ViewPagerAdapter(
                             valueFromViewModel = viewModel.helpCurrentValue
 
                         }
-                        R.drawable.kind_image -> {
+                        KIND -> {
                             maxValueFromViewModel = viewModel.kindMaxValue
                             if (!valueString.isNullOrBlank()) {
                                 if (value <= maxValueFromViewModel) {
@@ -354,7 +376,7 @@ class ViewPagerAdapter(
                             }
                             valueFromViewModel = viewModel.kindCurrentValue
                         }
-                        R.drawable.pray_image -> {
+                        PRAY -> {
                             maxValueFromViewModel = viewModel.prayMaxValue
                             if (!valueString.isNullOrBlank()) {
                                 if (value <= maxValueFromViewModel) {
@@ -376,7 +398,7 @@ class ViewPagerAdapter(
                             valueFromViewModel = viewModel.prayCurrentValue
 
                         }
-                        R.drawable.smile_image -> {
+                        SMILE -> {
                             maxValueFromViewModel = viewModel.smileMaxValue
                             if (!valueString.isNullOrBlank()) {
                                 if (value <= maxValueFromViewModel) {
@@ -397,7 +419,7 @@ class ViewPagerAdapter(
                             }
                             valueFromViewModel = viewModel.smileCurrentValue
                         }
-                        R.drawable.share_image -> {
+                        SHARE -> {
                             maxValueFromViewModel = viewModel.shareMaxValue
                             if (!valueString.isNullOrBlank()) {
                                 if (value <= maxValueFromViewModel) {
@@ -406,7 +428,7 @@ class ViewPagerAdapter(
                                     Toast.makeText(
                                         context,
                                         "Error value",
-                                        Toast.LENGTH_SHORT
+                                        Toast.LENGTH_LONG
                                     )
                                         .show()
                                 }
@@ -420,9 +442,8 @@ class ViewPagerAdapter(
 
                         }
                     }
-                    progressIndicator.progress = valueFromViewModel
+                    progressIndicator.setProgressCompat(((valueFromViewModel/maxValueFromViewModel.toFloat())*100).roundToInt(), false)
                     "$valueFromViewModel/$maxValueFromViewModel".also { textView.text = it }
-                  //  displayToast(valueFromViewModel.toString())
                 }
 
             val custom = layoutMe.getCustomView()
@@ -452,7 +473,16 @@ class ViewPagerAdapter(
 
     }
 
- class OnClickListener(val clickListener: (imageResource: Int) -> Unit) {
-    fun onClick(imageResource: Int) = clickListener(imageResource)
-}
+    class OnClickListener(val clickListener: (imageResource: Int) -> Unit) {
+        fun onClick(imageResource: Int) = clickListener(imageResource)
+    }
+
+    companion object {
+        private const val MONEY : Int = 0
+        private const val HELP : Int = 1
+        private const val KIND : Int = 2
+        private const val PRAY : Int = 3
+        private const val SMILE : Int = 4
+        private const val SHARE : Int = 5
+    }
 }

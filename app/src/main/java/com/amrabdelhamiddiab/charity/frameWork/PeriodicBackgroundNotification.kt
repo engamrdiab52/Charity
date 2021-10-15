@@ -11,7 +11,7 @@ import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.amrabdelhamiddiab.charity.MainActivity
 import com.amrabdelhamiddiab.charity.R
-import com.amrabdelhamiddiab.charity.frameWork.Constants.CHANNEL_ID_PERIOD_WORK
+import com.amrabdelhamiddiab.core.domain.Constants.CHANNEL_ID_PERIOD_WORK
 
 class PeriodicBackgroundNotification(
     private val context: Context,

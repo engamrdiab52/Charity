@@ -1,4 +1,4 @@
-package com.amrabdelhamiddiab.charity.frameWork
+package com.amrabdelhamiddiab.core.domain
 
 object Constants {
     const val CHANNEL_ID_PERIOD_WORK = "PERIODIC_APP_UPDATES"
