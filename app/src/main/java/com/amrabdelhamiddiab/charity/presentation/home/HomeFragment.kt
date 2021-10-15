@@ -15,7 +15,6 @@ import com.amrabdelhamiddiab.charity.databinding.FragmentHomeBinding
 import com.amrabdelhamiddiab.charity.frameWork.CharityViewModelFactory
 import com.amrabdelhamiddiab.charity.frameWork.HorizontalMarginItemDecoration
 import com.amrabdelhamiddiab.charity.frameWork.targetScreenDataList
-import com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding

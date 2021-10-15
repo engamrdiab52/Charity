@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var toolbar: Toolbar
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var preferenceHelper: IPreferenceHelper
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -64,20 +65,23 @@ class MainActivity : AppCompatActivity() {
         )
         //to change title automatically
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
-        selectPeriodicTime()
+        firePeriodicNotification()
     }
 
-    private fun selectPeriodicTime() {
-        val periodTime = PeriodicWorkRequest.Builder(
+    private fun firePeriodicNotification() {
+        val periodicTimeWork = PeriodicWorkRequest.Builder(
             PeriodicBackgroundNotification::class.java,
-            1,
-            TimeUnit.HOURS
-        ).setConstraints(constraints).build()
-        WorkManager.getInstance(this).enqueueUniquePeriodicWork(
-            "periodic-pending-notification",
-            ExistingPeriodicWorkPolicy.REPLACE,
-            periodTime
-        )
+            16,
+            TimeUnit.MINUTES
+        ).addTag("com.amrabdelhamiddiab.charity.periodic-pending-notification")
+            .setConstraints(constraints)
+            .build()
+        WorkManager.getInstance(applicationContext)
+            .enqueueUniquePeriodicWork(
+                "com.amrabdelhamiddiab.charity-periodic-pending-notification",
+                ExistingPeriodicWorkPolicy.KEEP,
+                periodicTimeWork
+            )
     }
 
     override fun onSupportNavigateUp(): Boolean {

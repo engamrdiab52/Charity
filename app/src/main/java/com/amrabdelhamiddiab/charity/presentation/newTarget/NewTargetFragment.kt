@@ -100,8 +100,6 @@ class NewTargetFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_check -> {
-                /*  val days = 10000000000 / 68400000.0f
-                  val value =  days.roundToInt() +1*/
                 moneyString = money.text?.trim().toString()
                 helpString = help.text?.trim().toString()
                 kindString = kind.text?.trim().toString()

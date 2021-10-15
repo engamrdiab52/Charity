@@ -83,7 +83,12 @@ class ViewPagerAdapter(
                     }
                     tvDescription.setText(R.string.money_description)
                     ivSliderImage.setImageResource(R.drawable.money_image)
-                    progressIndicator.setProgressCompat(((viewModel.moneyCurrentValue/viewModel.moneyMaxValue.toFloat())*100).roundToInt(), false)
+                    if (viewModel.moneyMaxValue == 0){
+                        progressIndicator.setProgressCompat(0, false)
+                    }else{
+                        progressIndicator.setProgressCompat(((viewModel.moneyCurrentValue/viewModel.moneyMaxValue.toFloat())*100).roundToInt(), false)
+                    }
+
                    // progressIndicator.max = viewModel.moneyMaxValue
                     ///////////////////////////////////
                     estimateProgress(
@@ -107,8 +112,15 @@ class ViewPagerAdapter(
                     }
                     tvDescription.setText(R.string.help_description)
                     ivSliderImage.setImageResource(R.drawable.help_image)
-                    progressIndicator.setProgressCompat(((viewModel.helpCurrentValue/viewModel.helpMaxValue.toFloat())*100).roundToInt(), false)
-                  //  progressIndicator.max = viewModel.helpMaxValue
+                    if (viewModel.helpMaxValue == 0){
+                        progressIndicator.setProgressCompat(0, false)
+                    }else {
+                        progressIndicator.setProgressCompat(
+                            ((viewModel.helpCurrentValue / viewModel.helpMaxValue.toFloat()) * 100).roundToInt(),
+                            false
+                        )
+                    }
+                        //  progressIndicator.max = viewModel.helpMaxValue
                     ////////////////////////
                     estimateProgress(
                         viewModel.helpCurrentValue,
@@ -133,8 +145,15 @@ class ViewPagerAdapter(
                     }
                     tvDescription.setText(R.string.kind_description)
                     ivSliderImage.setImageResource(R.drawable.kind_image)
-                    progressIndicator.setProgressCompat(((viewModel.kindCurrentValue/viewModel.kindMaxValue.toFloat())*100).roundToInt(), false)
-                   // progressIndicator.max = viewModel.kindMaxValue
+                    if (viewModel.kindMaxValue == 0){
+                        progressIndicator.setProgressCompat(0, false)
+                    }else {
+                        progressIndicator.setProgressCompat(
+                            ((viewModel.kindCurrentValue / viewModel.kindMaxValue.toFloat()) * 100).roundToInt(),
+                            false
+                        )
+                    }
+                    // progressIndicator.max = viewModel.kindMaxValue
                     /////////////////////////
                     estimateProgress(
                         viewModel.kindCurrentValue,
@@ -161,8 +180,15 @@ class ViewPagerAdapter(
                     }
                     tvDescription.setText(R.string.pray_description)
                     ivSliderImage.setImageResource(R.drawable.pray_image)
-                    progressIndicator.setProgressCompat(((viewModel.prayCurrentValue/viewModel.prayMaxValue.toFloat())*100).roundToInt(), false)
-                  //  progressIndicator.max = viewModel.prayMaxValue
+                    if (viewModel.prayMaxValue == 0){
+                        progressIndicator.setProgressCompat(0, false)
+                    }else {
+                        progressIndicator.setProgressCompat(
+                            ((viewModel.prayCurrentValue / viewModel.prayMaxValue.toFloat()) * 100).roundToInt(),
+                            false
+                        )
+                    }
+                        //  progressIndicator.max = viewModel.prayMaxValue
                     /////////////////////////
                     estimateProgress(
                         viewModel.prayCurrentValue,
@@ -187,8 +213,16 @@ class ViewPagerAdapter(
                     }
                     tvDescription.setText(R.string.smile_description)
                     ivSliderImage.setImageResource(R.drawable.smile_image)
-                    progressIndicator.setProgressCompat(((viewModel.smileCurrentValue/viewModel.smileMaxValue.toFloat())*100).roundToInt(), false)
-                   // progressIndicator.max = viewModel.smileMaxValue
+                    if (viewModel.smileMaxValue == 0){
+                        progressIndicator.setProgressCompat(0, false)
+                    }else {
+                        progressIndicator.setProgressCompat(
+                            ((viewModel.smileCurrentValue / viewModel.smileMaxValue.toFloat()) * 100).roundToInt(),
+                            false
+                        )
+
+                    }
+                    // progressIndicator.max = viewModel.smileMaxValue
                     /////////////////////////
                     estimateProgress(
                         viewModel.smileCurrentValue,
@@ -213,8 +247,15 @@ class ViewPagerAdapter(
                     }
                     tvDescription.setText(R.string.share_description)
                     ivSliderImage.setImageResource(R.drawable.share_image)
-                    progressIndicator.setProgressCompat(((viewModel.shareCurrentValue/viewModel.shareMaxValue.toFloat())*100).roundToInt(), false)
-                   // progressIndicator.max = viewModel.shareMaxValue
+                    if (viewModel.shareMaxValue == 0){
+                        progressIndicator.setProgressCompat(0, false)
+                    }else {
+                        progressIndicator.setProgressCompat(
+                            ((viewModel.shareCurrentValue / viewModel.shareMaxValue.toFloat()) * 100).roundToInt(),
+                            false
+                        )
+
+                    } // progressIndicator.max = viewModel.shareMaxValue
                     /////////////////////////
                     estimateProgress(
                         viewModel.shareCurrentValue,
@@ -315,15 +356,14 @@ class ViewPagerAdapter(
                         MONEY -> {
                             maxValueFromViewModel = viewModel.moneyMaxValue
                             if (!valueString.isNullOrBlank()) {
-                                if (value <= maxValueFromViewModel) {
+                                if ((value <= maxValueFromViewModel) && (maxValueFromViewModel != 0)) {
                                     viewModel.setMoneyValue(value)
                                 } else {
                                     Toast.makeText(
                                         context,
                                         "Error value",
                                         Toast.LENGTH_SHORT
-                                    )
-                                        .show()
+                                    ).show()
                                 }
                                 if (value == maxValueFromViewModel && value != 0) {
                                     imageViewCompleted.visibility = View.VISIBLE
@@ -336,7 +376,7 @@ class ViewPagerAdapter(
                         HELP -> {
                             maxValueFromViewModel = viewModel.helpMaxValue
                             if (!valueString.isNullOrBlank()) {
-                                if (value <= maxValueFromViewModel) {
+                                if ((value <= maxValueFromViewModel)&& (maxValueFromViewModel != 0)) {
                                     viewModel.setHelpValue(value)
                                 } else {
                                     Toast.makeText(
@@ -358,7 +398,7 @@ class ViewPagerAdapter(
                         KIND -> {
                             maxValueFromViewModel = viewModel.kindMaxValue
                             if (!valueString.isNullOrBlank()) {
-                                if (value <= maxValueFromViewModel) {
+                                if ((value <= maxValueFromViewModel) && (maxValueFromViewModel != 0)) {
                                     viewModel.setKindValue(value)
                                 } else {
                                     Toast.makeText(
@@ -379,7 +419,7 @@ class ViewPagerAdapter(
                         PRAY -> {
                             maxValueFromViewModel = viewModel.prayMaxValue
                             if (!valueString.isNullOrBlank()) {
-                                if (value <= maxValueFromViewModel) {
+                                if ((value <= maxValueFromViewModel) && (maxValueFromViewModel != 0)) {
                                     viewModel.setPrayValue(value)
                                 } else {
                                     Toast.makeText(
@@ -401,7 +441,7 @@ class ViewPagerAdapter(
                         SMILE -> {
                             maxValueFromViewModel = viewModel.smileMaxValue
                             if (!valueString.isNullOrBlank()) {
-                                if (value <= maxValueFromViewModel) {
+                                if ((value <= maxValueFromViewModel) && (maxValueFromViewModel != 0)) {
                                     viewModel.setSmileValue(value)
                                 } else {
                                     Toast.makeText(
@@ -422,7 +462,7 @@ class ViewPagerAdapter(
                         SHARE -> {
                             maxValueFromViewModel = viewModel.shareMaxValue
                             if (!valueString.isNullOrBlank()) {
-                                if (value <= maxValueFromViewModel) {
+                                if ((value <= maxValueFromViewModel) &&( maxValueFromViewModel != 0)) {
                                     viewModel.setShareValue(value)
                                 } else {
                                     Toast.makeText(
@@ -442,7 +482,11 @@ class ViewPagerAdapter(
 
                         }
                     }
-                    progressIndicator.setProgressCompat(((valueFromViewModel/maxValueFromViewModel.toFloat())*100).roundToInt(), false)
+                    if (maxValueFromViewModel != 0 ){
+                        progressIndicator.setProgressCompat(((valueFromViewModel/maxValueFromViewModel.toFloat())*100)
+                            .roundToInt(), false)
+                    }
+
                     "$valueFromViewModel/$maxValueFromViewModel".also { textView.text = it }
                 }
 

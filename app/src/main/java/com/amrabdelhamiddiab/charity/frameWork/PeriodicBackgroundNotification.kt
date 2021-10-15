@@ -25,20 +25,23 @@ class PeriodicBackgroundNotification(
         val intent = Intent(context, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
+        /*
         val pendingIntent = TaskStackBuilder.create(context).run {
             // Add the intent, which inflates the back stack
             addNextIntentWithParentStack(intent)
             // Get the PendingIntent containing the entire back stack
-            getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
-        }
+            getPendingIntent(1, PendingIntent.FLAG_UPDATE_CURRENT)
+        }*/
+        val pendingIntent: PendingIntent = PendingIntent.getActivity(context, 1, intent, 0)
 
-        val notification = NotificationCompat.Builder(applicationContext, CHANNEL_ID_PERIOD_WORK).apply {
+        val notification = NotificationCompat.Builder(context, CHANNEL_ID_PERIOD_WORK).apply {
             setContentIntent(pendingIntent)
         }
-        notification.setContentTitle("PERIOD WORK")
-        notification.setContentText("abababababababababababababababab")
-        notification.priority = NotificationCompat.PRIORITY_HIGH
-        notification.setCategory(NotificationCompat.CATEGORY_ALARM)
+        val body = "periodic running task is running"
+        notification.setContentTitle("Amr Abd Elhamid Diab peroidic")
+        notification.setContentText(body)
+        notification.priority = NotificationCompat.PRIORITY_DEFAULT
+        notification.setCategory(NotificationCompat.CATEGORY_REMINDER)
         notification.setSmallIcon(R.drawable.ic_notifications_none_blac)
         val sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)
         notification.setSound(sound)

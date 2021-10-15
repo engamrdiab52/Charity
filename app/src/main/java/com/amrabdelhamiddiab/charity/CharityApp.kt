@@ -15,15 +15,19 @@ class CharityApp : Application() {
     }
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val importance = NotificationManager.IMPORTANCE_HIGH
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+        /*    val channelInstant =
+                NotificationChannel(CHANNEL_ID_ONE_TIME_WORK, "One Time Work Request", importance)
+            channelInstant.description = "One Time Work"*/
+
             val channelPeriodic = NotificationChannel(CHANNEL_ID_PERIOD_WORK, "Period Work Request", importance)
             channelPeriodic.description = "Periodic Work"
-            // Register the channel with the system; you can't change the importance
-            // or other notification behaviors after this
+
             val notificationManager = applicationContext.getSystemService(
                 NotificationManager::class.java
             )
             notificationManager!!.createNotificationChannel(channelPeriodic)
+          //  notificationManager.createNotificationChannel(channelInstant)
         }
     }
 }
