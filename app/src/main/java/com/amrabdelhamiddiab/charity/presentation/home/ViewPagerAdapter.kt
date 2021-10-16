@@ -521,12 +521,14 @@ class ViewPagerAdapter(
         fun onClick(imageResource: Int) = clickListener(imageResource)
     }
 
+
+
     companion object {
-        private const val MONEY : Int = 0
-        private const val HELP : Int = 1
-        private const val KIND : Int = 2
-        private const val PRAY : Int = 3
-        private const val SMILE : Int = 4
-        private const val SHARE : Int = 5
+        const val MONEY : Int = 0
+        const val HELP : Int = 1
+        const val KIND : Int = 2
+        const val PRAY : Int = 3
+        const val SMILE : Int = 4
+        const val SHARE : Int = 5
     }
 }

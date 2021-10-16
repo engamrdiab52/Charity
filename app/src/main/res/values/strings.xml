@@ -47,7 +47,11 @@
     <string name="you_are_3_days_ahead">You are 3 days ahead</string>
     <string name="add">ADD</string>
     <string name="edit_goal">Progress</string>
+    <string name="total_value_statement">The lowest guaranteed return is ten times what you spent:</string>
+    <string name="value_statement">total profits that you deserve</string>
+
     <string name="note">note</string>
+    <string name="total_balance">Total Balance</string>
     <string-array name="project_array">
         <item>start a new project</item>
         <item>Edit an existing project</item>

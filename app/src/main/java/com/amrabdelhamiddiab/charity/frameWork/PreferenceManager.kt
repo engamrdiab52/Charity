@@ -19,6 +19,14 @@ class PreferenceManager constructor(context: Context) : IPreferenceHelper {
         const val PRAY_VALUE_MAX = "prayValueMax"
         const val SMILE_VALUE_MAX = "smileValueMax"
         const val SHARE_VALUE_MAX = "shareValueMax"
+
+        const val MONEY_VALUE_TOTAL = "moneyValueTotal"
+        const val HELP_VALUE_TOTAL= "helpValueTotal"
+        const val KIND_VALUE_TOTAL = "kindValueTotal"
+        const val PRAY_VALUE_TOTAL = "prayValueTotal"
+        const val SMILE_VALUE_TOTAL = "smileValueTotal"
+        const val SHARE_VALUE_TOTAL = "shareValueTotal"
+
         const val CURRENT_TIME = "currentTime"
     }
 
@@ -147,8 +155,56 @@ class PreferenceManager constructor(context: Context) : IPreferenceHelper {
         return preferences[SHARE_VALUE_MAX] ?: 0
     }
 
+    override fun setMoneyValueTotal(moneyValueTotal: Int) {
+        preferences[MONEY_VALUE_TOTAL] = moneyValueTotal
+    }
+
+    override fun getMoneyValueTotal(): Int {
+        return preferences[MONEY_VALUE_TOTAL] ?: 0
+    }
+
+    override fun setHelpValueTotal(helpValueTotal: Int) {
+        preferences[HELP_VALUE_TOTAL] = helpValueTotal
+    }
+
+    override fun getHelpValueTotal(): Int {
+        return preferences[HELP_VALUE_TOTAL] ?: 0
+    }
+
+    override fun setKindValueTotal(kindValueTotal: Int) {
+        preferences[KIND_VALUE_TOTAL] = kindValueTotal
+    }
+
+    override fun getKindValueTotal(): Int {
+        return preferences[KIND_VALUE_TOTAL] ?: 0
+    }
+
+    override fun setPrayValueTotal(prayValueTotal: Int) {
+        preferences[PRAY_VALUE_TOTAL] = prayValueTotal
+    }
+
+    override fun getPrayValueTotal(): Int {
+        return preferences[PRAY_VALUE_TOTAL] ?: 0
+    }
+
+    override fun setSmileValueTotal(smileValueTotal: Int) {
+        preferences[SMILE_VALUE_TOTAL] = smileValueTotal
+    }
+
+    override fun getSmileValueTotal(): Int {
+        return preferences[SMILE_VALUE_TOTAL] ?: 0
+    }
+
     override fun setCurrentTime(moneyValueMax: Long) {
         preferences[CURRENT_TIME] = moneyValueMax
+    }
+
+    override fun setShareValueTotal(moneyValueTotal: Int) {
+        preferences[SHARE_VALUE_TOTAL] = moneyValueTotal
+    }
+
+    override fun getShareValueTotal(): Int {
+        return preferences[SHARE_VALUE_TOTAL] ?: 0
     }
 
     override fun getPreviousSavedTime(): Long {

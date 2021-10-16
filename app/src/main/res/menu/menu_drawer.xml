@@ -4,15 +4,11 @@
         android:id="@+id/homeFragment"
         android:icon="@drawable/ic_outline_home"
         android:title="@string/home" />
-   <!-- <item
-        android:id="@+id/searchFragment"
-        android:icon="@drawable/ic_search"
-        android:title="@string/search" />-->
     <item
         android:id="@+id/currentBalanceFragment"
         android:title="@string/current_balance"
         android:icon="@drawable/ic_outline_account_balance_wallet"/>
-    <item
+   <!-- <item
         android:id="@+id/historyFragment"
         android:icon="@drawable/ic_outline_account_balance"
         android:title="@string/history" />
@@ -20,6 +16,6 @@
     <item
         android:id="@+id/profitsFragment"
         android:icon="@drawable/ic_outline_diamond"
-        android:title="@string/profits" />
+        android:title="@string/profits" /> -->
 
 </menu>

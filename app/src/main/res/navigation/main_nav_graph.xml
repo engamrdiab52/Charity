@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/currentBalanceFragment"
         android:name="com.amrabdelhamiddiab.charity.presentation.currentBalance.CurrentBalanceFragment"
-        android:label="CurrentBalanceFragment" />
+        android:label="Total Balance" />
     <fragment
         android:id="@+id/historyFragment"
         android:name="com.amrabdelhamiddiab.charity.presentation.history.HistoryFragment"

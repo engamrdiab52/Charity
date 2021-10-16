@@ -38,6 +38,24 @@ interface IPreferenceHelper {
     fun setShareValueMax(moneyValueMax: Int)
     fun getShareValueMax(): Int
 
+    fun setMoneyValueTotal(moneyValueTotal: Int)
+    fun getMoneyValueTotal(): Int
+
+    fun setHelpValueTotal(helpValueTotal: Int)
+    fun getHelpValueTotal(): Int
+
+    fun setKindValueTotal(kindValueTotal: Int)
+    fun getKindValueTotal(): Int
+
+    fun setPrayValueTotal(prayValueTotal: Int)
+    fun getPrayValueTotal(): Int
+
+    fun setSmileValueTotal(smileValueTotal: Int)
+    fun getSmileValueTotal(): Int
+
+    fun setShareValueTotal(moneyValueTotal: Int)
+    fun getShareValueTotal(): Int
+
     fun setCurrentTime(moneyValueMax: Long)
     fun getPreviousSavedTime(): Long
 

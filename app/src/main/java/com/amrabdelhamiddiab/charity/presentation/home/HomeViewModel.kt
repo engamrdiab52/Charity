@@ -52,6 +52,29 @@ class HomeViewModel(application: Application) : CharityViewModel(application) {
         preferencesHelper.setShareValue(shareValue)
     }
 
+    fun setMoneyValueTotal(moneyValueTotal: Int) {
+        preferencesHelper.setMoneyValueTotal(moneyValueTotal)
+    }
+
+    fun setHelpValueTotal(helpValueTotal: Int) {
+        preferencesHelper.setHelpValueTotal(helpValueTotal)
+    }
+
+    fun setKindValueTotal(kindValueTotal: Int) {
+        preferencesHelper.setKindValueTotal(kindValueTotal)
+    }
+
+    fun setPrayValueTotal(prayValueTotal: Int) {
+        preferencesHelper.setPrayValueTotal(prayValueTotal)
+    }
+
+    fun setSmileValueTotal(smileValueTotal: Int) {
+        preferencesHelper.setSmileValueTotal(smileValueTotal)
+    }
+
+    fun setShareValueTotal(shareValueTotal: Int) {
+        preferencesHelper.setShareValueTotal(shareValueTotal)
+    }
 
     fun saveTime(currentTime: Long) {
         preferencesHelper.setCurrentTime(currentTime)
