@@ -1,22 +1,16 @@
 <resources>
     <string name="app_name">Charity</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="home">Home</string>
-    <string name="current_balance">Current Balance</string>
-    <string name="history">History</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="home">Current Balance</string>
+    <string name="total_balance">Total Balance</string>
+    <string name="history" translatable="false">History</string>
     <string name="profits">Profits</string>
     <string name="settings">Settings</string>
     <string name="quantity_of_units">Quantity of units</string>
-    <string name="explain_the_item_here">explain the item here</string>
-    <string name="how_much_do_you_intend_to_spend_within_a_month_from_now">How much money do you intend to spend within a month from now?</string>
-    <string name="how_much_help_do_you_intend_to_give_for_charity_at_home_work_friends_relatives_neighbours_or_someone_you_don_t_know">How much help do you intend to give for charity at home, work, friends, relatives, neighbours, or someone you don\'t know?</string>
-    <string name="how_many_kind_words_do_you_intend_to_offer_as_a_charity_whether_in_your_real_life_or_social_networking_sites">How many kind words do you intend to offer as a charity, whether in your real life or social networking sites?</string>
-    <string name="how_often_do_you_intend_to_pray_for_the_good_of_others">How often do you intend to pray for the good of others?</string>
-    <string name="input_field">input field</string>
-    <string name="how_often_do_you_intend_to_smile_with_the_intention_of_charity">How often do you intend to smile with the intention of charity?</string>
-    <string name="for_the_next_30_days_from_now">For the next 30 days from now</string>
-    <string name="how_often_do_you_intend_to_talk_about_this_app_whether_in_real_or_virtual_life_in_the_belief_that_the_one_who_directs_to_goodness_is_like_the_one_who_does_it">How often do you intend to talk about this app, whether in your real life or social networking sites, in the belief that The one who directs to goodness is like the one who does it?</string>
+    <string name="explain_the_item_here" translatable="false">explain the item here</string>
+    <string name="input_field" translatable="false">input field</string>
+    <string name="for_the_4_weeks_from_now">For the next 4 weeks from now</string>
     <string name="money_description">"How much money do you intend to spend within a month from now?"</string>
     <string name="help_description">"How much help do you intend to give for charity at home, work, friends, relatives, neighbours, or someone you don\'t know?"</string>
     <string name="kind_description">"How many kind words do you intend to offer as a charity, whether in your real life or social networking sites?"</string>
@@ -25,8 +19,8 @@
     <string name="share_description">"How often do you intend to talk about this app, in the belief that The one who directs to goodness is like the one who does it?"</string>
     <string name="total">TOTAL:</string>
     <string name="start">START</string>
-    <string name="status_bar">status bar</string>
-    <string name="_0">0</string>
+    <string name="status_bar" translatable="false">status bar</string>
+    <string name="_0" translatable="false">0</string>
     <string name="help">Help</string>
     <string name="kind_words">Kind words</string>
     <string name="pray">Pray</string>
@@ -34,13 +28,13 @@
     <string name="share">Share</string>
     <string name="money">Money</string>
     <string name="completed">Completed</string>
-    <string name="click">click</string>
+    <string name="click" translatable="false">click</string>
     <string name="current_value">Current value= </string>
-    <string name="_125">125</string>
+    <string name="_125" translatable="false">125</string>
     <string name="new_value">New value=</string>
-    <string name="_150">150</string>
+    <string name="_150" translatable="false">150</string>
     <string name="text_ok">OK</string>
-    <string name="max_value">Max value= </string>
+    <string name="max_value" translatable="false">Max value= </string>
     <string name="edit">EDIT</string>
     <string name="ok">OK</string>
     <string name="you_are_3_days_late">You are 3 days late</string>
@@ -49,11 +43,15 @@
     <string name="edit_goal">Progress</string>
     <string name="total_value_statement">The lowest guaranteed return is ten times what you spent:</string>
     <string name="value_statement">total profits that you deserve</string>
+    <string name="notification_body">Charity is a magical path to success</string>
+    <string name="notification_title">Charity</string>
+    <string name="note" translatable="false">note</string>
 
-    <string name="note">note</string>
-    <string name="total_balance">Total Balance</string>
     <string-array name="project_array">
         <item>start a new project</item>
         <item>Edit an existing project</item>
     </string-array>
+    <string name="current_balance">Current Balance</string>
+    <string name="english">English</string>
+    <string name="arabic">Arabic</string>
 </resources>

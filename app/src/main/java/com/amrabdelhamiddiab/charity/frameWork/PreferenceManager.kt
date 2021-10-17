@@ -211,6 +211,10 @@ class PreferenceManager constructor(context: Context) : IPreferenceHelper {
         return preferences[CURRENT_TIME] ?: 0L
     }
 
+    override fun getSavedLanguageChoice(): String {
+        return preferences[LocaleHelper.SELECTED_LANGUAGE] ?: ""
+    }
+
     override fun clearPrefs() {
         preferences.edit().clear().apply()
     }

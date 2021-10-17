@@ -25,6 +25,13 @@ class HomeViewModel(application: Application) : CharityViewModel(application) {
     val prayMaxValue: Int get() = preferencesHelper.getPrayValueMax()
     val smileMaxValue: Int get() = preferencesHelper.getSmileValueMax()
     val shareMaxValue: Int get() = preferencesHelper.getShareValueMax()
+///////////////////////////////////////////////////////////////////////
+val moneyTotalValue: Int get() = preferencesHelper.getMoneyValueTotal()
+    val helpTotalValue: Int get() = preferencesHelper.getHelpValueTotal()
+    val kindTotalValue: Int get() = preferencesHelper.getKindValueTotal()
+    val prayTotalValue: Int get() = preferencesHelper.getPrayValueTotal()
+    val smileTotalValue: Int get() = preferencesHelper.getSmileValueTotal()
+    val shareTotalValue: Int get() = preferencesHelper.getShareValueTotal()
 
     val savedTime: Long get() = preferencesHelper.getPreviousSavedTime()
     ////////////////////////////

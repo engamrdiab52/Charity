@@ -6,7 +6,7 @@
         android:title="@string/home" />
     <item
         android:id="@+id/currentBalanceFragment"
-        android:title="@string/current_balance"
+        android:title="@string/total_balance"
         android:icon="@drawable/ic_outline_account_balance_wallet"/>
    <!-- <item
         android:id="@+id/historyFragment"

@@ -17,14 +17,13 @@ import com.amrabdelhamiddiab.charity.presentation.home.HomeViewModel
 class CurrentBalanceFragment : Fragment() {
     private lateinit var binding: FragmentCurrentBalanceBinding
     private lateinit var viewPager2: ViewPager2
-    val listOfTotalValues: List<String> = listOf("1550", "2550", "3550", "4550", "5550", "6550")
 
     private val viewModel: CurrentBalanceViewModel by lazy {
         ViewModelProvider(this, CharityViewModelFactory)[CurrentBalanceViewModel::class.java]
     }
 
     val adapter: CurrentBalanceAdapter by lazy {
-        CurrentBalanceAdapter(listOfTotalValues, viewModel, requireContext())
+        CurrentBalanceAdapter( viewModel, requireContext())
     }
 
 
@@ -38,6 +37,7 @@ class CurrentBalanceFragment : Fragment() {
         viewPager2.adapter = adapter
         val dotsIndicator = binding.springDotsIndicatorCurrentBalance
         dotsIndicator.setViewPager2(viewPager2)
+
       /*  viewPager2.clipToPadding = false
         viewPager2.setPadding(0, 0, 0, 0)
         // You need to retain one page on each side

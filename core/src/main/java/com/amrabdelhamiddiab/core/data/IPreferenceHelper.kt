@@ -59,5 +59,6 @@ interface IPreferenceHelper {
     fun setCurrentTime(moneyValueMax: Long)
     fun getPreviousSavedTime(): Long
 
+    fun getSavedLanguageChoice(): String
     fun clearPrefs()
 }

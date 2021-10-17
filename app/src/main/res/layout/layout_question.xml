@@ -36,7 +36,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:padding="4dp"
-        android:text="@string/how_much_do_you_intend_to_spend_within_a_month_from_now"
+        android:text="@string/money_description"
         android:textAppearance="?attr/textAppearanceHeadline6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -31,10 +31,6 @@ class HomeFragment : Fragment() {
                 Toast.makeText(requireContext(), "done", Toast.LENGTH_SHORT).show()
             })
     }
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,7 +42,6 @@ class HomeFragment : Fragment() {
         }
         viewPager2 = binding.viewPager
         viewPager2.adapter = adapter
-
         val dotsIndicator = binding.springDotsIndicator
         dotsIndicator.setViewPager2(viewPager2)
         viewPager2.clipToPadding = false
@@ -97,7 +92,6 @@ class HomeFragment : Fragment() {
                 viewModel.fakeTime += DAY
                 Log.d(TAG, "${viewModel.fakeTime} +  ${viewModel.counterForFakeTime}")
                 adapter.run { notifyDataSetChanged() }
-
                 true
             }
             else -> super.onOptionsItemSelected(item)

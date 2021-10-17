@@ -161,7 +161,6 @@ class NewTargetFragment : Fragment() {
                 val totalValue =
                     viewModel.moneyValueMax + viewModel.helpValueMax + viewModel.smileValueMax + viewModel.kindValueMax + viewModel.shareValueMax + viewModel.prayValueMax
                 hideKeyboard()
-                findNavController().navigate(R.id.action_newTargetFragment_to_homeFragment)
                 displayDialog()
                 true
             }
@@ -182,9 +181,18 @@ class NewTargetFragment : Fragment() {
                             val date = Date()
                             val currentMoment = date.time
                             viewModel.saveTime(currentMoment)
+                            viewModel.setCurrentMoneyValue(0)
+                            viewModel.setCurrentHelpValue(0)
+                            viewModel.setCurrentPrayValue(0)
+                            viewModel.setCurrentKindValue(0)
+                            viewModel.setCurrentSmileValue(0)
+                            viewModel.setCurrentShareValue(0)
+                            //**/*/*/*/*/*/*/*/**/*/*/*/*/*/*/*/*/*/*
+                            findNavController().navigate(R.id.action_newTargetFragment_to_homeFragment)
                             Log.d(TAG, "SAVED TIME : " + viewModel.savedTime.toString())
                         }
                         1 -> {
+                            findNavController().navigate(R.id.action_newTargetFragment_to_homeFragment)
                         }
                     }
                 }

@@ -13,4 +13,28 @@ class CurrentBalanceViewModel(application: Application) : CharityViewModel(appli
     val prayTotalValue: Int get() = preferencesHelper.getPrayValueTotal()
     val smileTotalValue: Int get() = preferencesHelper.getSmileValueTotal()
     val shareTotalValue: Int get() = preferencesHelper.getShareValueTotal()
+
+    fun setMoneyValueTotal(moneyValueTotal: Int) {
+        preferencesHelper.setMoneyValueTotal(moneyValueTotal)
+    }
+
+    fun setHelpValueTotal(helpValueTotal: Int) {
+        preferencesHelper.setHelpValueTotal(helpValueTotal)
+    }
+
+    fun setKindValueTotal(kindValueTotal: Int) {
+        preferencesHelper.setKindValueTotal(kindValueTotal)
+    }
+
+    fun setPrayValueTotal(prayValueTotal: Int) {
+        preferencesHelper.setPrayValueTotal(prayValueTotal)
+    }
+
+    fun setSmileValueTotal(smileValueTotal: Int) {
+        preferencesHelper.setSmileValueTotal(smileValueTotal)
+    }
+
+    fun setShareValueTotal(shareValueTotal: Int) {
+        preferencesHelper.setShareValueTotal(shareValueTotal)
+    }
 }

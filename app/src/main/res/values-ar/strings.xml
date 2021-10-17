@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Charity</string>
+    <string name="home">الرصيد الحالى</string>
+    <string name="current_balance">الرصيد الحالى</string>
+    <string name="profits">الأرباح</string>
+    <string name="settings">الضبط</string>
+    <string name="total_balance">إجمالى الرصيد</string>
+    <string name="notification_title">الصّدقةَ</string>
+    <string name="notification_body">الصدقة هى طريقك السحرى للنجاح</string>
+    <string name="value_statement">الارباح التى تستحقها</string>
+    <string name="total_value_statement">أقل عائد مضمون</string>
+    <string name="edit_goal">ترقى</string>
+    <string name="add">إضافة</string>
+    <string name="you_are_3_days_ahead">أنت متقدم ب ثلاثة أيام</string>
+    <string name="you_are_3_days_late">أنت متأخر بثلاثة أيام</string>
+    <string name="ok">حسناً</string>
+    <string name="edit">تعديل</string>
+    <string name="text_ok">جسناً</string>
+    <string name="new_value">القيمة الجديدة</string>
+    <string name="current_value">القيمة الحالية</string>
+    <string name="completed">تمت</string>
+    <string name="money">المال</string>
+    <string name="share">المشاركة</string>
+    <string name="smile">الابتسام</string>
+    <string name="pray">الدعاء</string>
+    <string name="kind_words">الكلام الطيب</string>
+    <string name="help">المساعدة</string>
+    <string name="start">إبدأ</string>
+    <string name="total">الإجمالى</string>
+    <string name="share_description">"كم تنوى مشاركة هذا التطبيق والحديث عنه مؤمناً بأن الدال على الخير كفاعله؟ "</string>
+    <string name="smile_description">كم تنوى أن تبتسم بنية الصدقة؟</string>
+    <string name="pray_description">كم تنوى أن تدعوا بالغيب للأخرين؟</string>
+    <string name="kind_description">كم تنوى أن تتكلم بالطيب سواء فى الواقع أو عبر مواقع التواصل الإجتماعى</string>
+    <string name="help_description">كم تنوى أن تساعد الاخرين سواء الاسرة نفسها أو فى عملك أو الاصدقاء أو الأهل أو اشخاص لاتعرفها</string>
+    <string name="money_description">كم المبلغ الذى تنوى به التصدق هذا الشهر</string>
+    <string name="for_the_4_weeks_from_now">لفترة أربعة اسابيع من الأن</string>
+    <string name="quantity_of_units">كمية الوحدات</string>
+</resources>
