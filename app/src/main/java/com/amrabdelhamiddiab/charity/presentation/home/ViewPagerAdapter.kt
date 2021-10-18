@@ -379,11 +379,7 @@ class ViewPagerAdapter(
                                         Toast.LENGTH_SHORT
                                     ).show()
                                 }
-                                if (value == maxValueFromViewModel && value != 0) {
-                                    imageViewCompleted.visibility = View.VISIBLE
-                                } else {
-                                    imageViewCompleted.visibility = View.GONE
-                                }
+                                imageViewCompleted.visibility = viewModel.showMoneyDone()
                             }
                             valueFromViewModel = viewModel.moneyCurrentValue
                         }
@@ -408,11 +404,7 @@ class ViewPagerAdapter(
                                     )
                                         .show()
                                 }
-                                if (value == maxValueFromViewModel && value != 0) {
-                                    imageViewCompleted.visibility = View.VISIBLE
-                                } else {
-                                    imageViewCompleted.visibility = View.GONE
-                                }
+                                imageViewCompleted.visibility = viewModel.showHelpDone()
                             }
                             valueFromViewModel = viewModel.helpCurrentValue
 
@@ -438,11 +430,12 @@ class ViewPagerAdapter(
                                     )
                                         .show()
                                 }
-                                if (value == maxValueFromViewModel && value != 0) {
+                              /*  if (value == maxValueFromViewModel && value != 0) {
                                     imageViewCompleted.visibility = View.VISIBLE
                                 } else {
                                     imageViewCompleted.visibility = View.GONE
-                                }
+                                }*/
+                                imageViewCompleted.visibility = viewModel.showKindDone()
                             }
                             valueFromViewModel = viewModel.kindCurrentValue
                         }
@@ -467,11 +460,7 @@ class ViewPagerAdapter(
                                     )
                                         .show()
                                 }
-                                if (value == maxValueFromViewModel && value != 0) {
-                                    imageViewCompleted.visibility = View.VISIBLE
-                                } else {
-                                    imageViewCompleted.visibility = View.GONE
-                                }
+                                imageViewCompleted.visibility = viewModel.showPrayDone()
                             }
                             valueFromViewModel = viewModel.prayCurrentValue
 
@@ -497,11 +486,7 @@ class ViewPagerAdapter(
                                     )
                                         .show()
                                 }
-                                if (value == maxValueFromViewModel && value != 0) {
-                                    imageViewCompleted.visibility = View.VISIBLE
-                                } else {
-                                    imageViewCompleted.visibility = View.GONE
-                                }
+                                imageViewCompleted.visibility = viewModel.showSmileDone()
                             }
                             valueFromViewModel = viewModel.smileCurrentValue
                         }
@@ -526,11 +511,7 @@ class ViewPagerAdapter(
                                     )
                                         .show()
                                 }
-                                if (value == maxValueFromViewModel && value != 0) {
-                                    imageViewCompleted.visibility = View.VISIBLE
-                                } else {
-                                    imageViewCompleted.visibility = View.GONE
-                                }
+                                imageViewCompleted.visibility = viewModel.showShareDone()
                             }
                             valueFromViewModel = viewModel.shareCurrentValue
 
