@@ -26,6 +26,7 @@ import com.google.android.material.navigation.NavigationView
 import java.util.concurrent.TimeUnit
 import android.content.res.Configuration
 import android.util.Log
+import androidx.appcompat.app.AppCompatDelegate
 import com.amrabdelhamiddiab.charity.frameWork.LocaleHelper
 import com.amrabdelhamiddiab.charity.presentation.settings.SettingsFragment.Companion.ONE_PER_DAY
 
@@ -76,6 +77,11 @@ class MainActivity : AppCompatActivity() {
         //to change title automatically
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
         firePeriodicNotification()
+        if (preferenceHelper.getNightMode()){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }else{
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
     }
 
     private fun firePeriodicNotification() {

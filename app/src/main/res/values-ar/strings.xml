@@ -46,4 +46,9 @@
     <string name="twice_a_week">مرتين فى الاسبوع</string>
     <string name="twice_a_day">مرتين فى اليوم</string>
     <string name="three_times_a_week">ثلاث مرات فى الاسبوع</string>
+    <string-array name="project_array">
+    <item>إبدأ مشروع صدقة جديد</item>
+    <item>تعديل مشروع قائم</item>
+    </string-array>
+    <string name="night_mode">الوضع الليلى</string>
 </resources>

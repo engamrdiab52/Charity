@@ -28,7 +28,7 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white_gray"
+         android:textColor="@color/white"
                 android:padding="8dp"
                 android:text="@string/total_value_statement"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />

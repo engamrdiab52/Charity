@@ -9,12 +9,19 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
+import com.afollestad.materialdialogs.LayoutMode
+import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.bottomsheets.BottomSheet
+import com.afollestad.materialdialogs.callbacks.onDismiss
+import com.afollestad.materialdialogs.customview.customView
+import com.afollestad.materialdialogs.customview.getCustomView
 import com.amrabdelhamiddiab.charity.MainActivity.Companion.TAG
 import com.amrabdelhamiddiab.charity.R
 import com.amrabdelhamiddiab.charity.databinding.FragmentHomeBinding
 import com.amrabdelhamiddiab.charity.frameWork.CharityViewModelFactory
 import com.amrabdelhamiddiab.charity.frameWork.HorizontalMarginItemDecoration
 import com.amrabdelhamiddiab.charity.frameWork.targetScreenDataList
+import com.google.android.material.textfield.TextInputEditText
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
@@ -92,7 +99,18 @@ class HomeFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_edit -> {
-                findNavController().navigate(R.id.action_homeFragment_to_newTargetFragment)
+                val layoutMe = MaterialDialog(
+                    requireContext(),
+                    BottomSheet(LayoutMode.WRAP_CONTENT)
+                ).customView(R.layout.fragment_new_target).cornerRadius(16.0f)
+                    .positiveButton(R.string.text_ok).onDismiss {
+
+                    }
+                val custom = layoutMe.getCustomView()
+               // custom.findViewById<TextInputEditText>(R.id.text_input_edit_text_money).
+                layoutMe.show()
+
+                //  findNavController().navigate(R.id.action_homeFragment_to_newTargetFragment)
                 Log.d(TAG, "edit presses")
                 true
             }

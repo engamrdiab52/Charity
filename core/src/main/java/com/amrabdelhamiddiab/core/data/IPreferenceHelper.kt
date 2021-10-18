@@ -64,5 +64,8 @@ interface IPreferenceHelper {
     fun setSavedRemindersChoice(repeatsCount:Long)
     fun getSavedRemindersChoice(): Long
 
+    fun setNighMode(nighModeOn: Boolean)
+    fun getNightMode(): Boolean
+
     fun clearPrefs()
 }

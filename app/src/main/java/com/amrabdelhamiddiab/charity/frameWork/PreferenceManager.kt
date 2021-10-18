@@ -30,6 +30,7 @@ class PreferenceManager constructor(context: Context) : IPreferenceHelper {
 
         const val CURRENT_TIME = "currentTime"
         const val REPEATS_COUNT = "repeats_count"
+        const val NIGHT_MODE = "night_mode"
     }
 
     private val PREFS_NAME = "CharityPreferences"
@@ -224,6 +225,14 @@ class PreferenceManager constructor(context: Context) : IPreferenceHelper {
     override fun getSavedRemindersChoice(): Long {
         return preferences[REPEATS_COUNT] ?: 0L
 
+    }
+
+    override fun setNighMode(nighModeOn: Boolean) {
+        preferences[NIGHT_MODE] = nighModeOn
+    }
+
+    override fun getNightMode(): Boolean {
+        return preferences[NIGHT_MODE] ?: false
     }
 
     override fun clearPrefs() {

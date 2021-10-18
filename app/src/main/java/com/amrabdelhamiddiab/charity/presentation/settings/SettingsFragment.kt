@@ -7,12 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import com.amrabdelhamiddiab.charity.R
 import com.amrabdelhamiddiab.charity.databinding.FragmentSettingsBinding
 import com.amrabdelhamiddiab.charity.frameWork.CharityViewModelFactory.application
 import com.amrabdelhamiddiab.charity.frameWork.LocaleHelper
 import com.amrabdelhamiddiab.charity.frameWork.PreferenceManager
+import com.google.android.material.switchmaterial.SwitchMaterial
 
 class SettingsFragment : Fragment() {
     companion object{
@@ -25,6 +27,7 @@ class SettingsFragment : Fragment() {
     private lateinit var radioGroupLanguage: RadioGroup
     private lateinit var radioGroupRepeats: RadioGroup
     private lateinit var binding: FragmentSettingsBinding
+    private lateinit var switchNightMode: SwitchMaterial
     private val preferencesHelper = PreferenceManager(application.applicationContext)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +41,18 @@ class SettingsFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_settings, container, false)
         radioGroupLanguage = binding.radioGroupLanguage
         radioGroupRepeats = binding.radioGroupRepeats
+        switchNightMode = binding.switchNightMode
+
+        switchNightMode.setOnClickListener {
+            if (switchNightMode.isChecked){
+                preferencesHelper.setNighMode(true)
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            }else{
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                preferencesHelper.setNighMode(false)
+            }
+
+        }
 
         when (preferencesHelper.getSavedLanguageChoice()) {
             "en" -> radioGroupLanguage.check(R.id.radio_button_english)
@@ -50,6 +65,7 @@ class SettingsFragment : Fragment() {
             TWO_PER_WEEK -> radioGroupRepeats.check(R.id.radio_button_twice_week)
             THREE_PER_WEEK -> radioGroupRepeats.check(R.id.radio_button_three_week)
         }
+        switchNightMode.isChecked = preferencesHelper.getNightMode()
         radioGroupLanguage.setOnCheckedChangeListener { _, i ->
             when (i) {
                 R.id.radio_button_english -> {

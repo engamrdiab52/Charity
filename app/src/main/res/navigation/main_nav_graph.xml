@@ -30,7 +30,7 @@
     <fragment
         android:id="@+id/newTargetFragment"
         android:name="com.amrabdelhamiddiab.charity.presentation.newTarget.NewTargetFragment"
-        android:label="New Targets"
+        android:label="@string/new_targets"
         tools:layout="@layout/fragment_new_target" >
         <action
             android:id="@+id/action_newTargetFragment_to_homeFragment"
