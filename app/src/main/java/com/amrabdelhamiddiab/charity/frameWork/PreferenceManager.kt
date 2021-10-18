@@ -2,6 +2,7 @@ package com.amrabdelhamiddiab.charity.frameWork
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.amrabdelhamiddiab.charity.frameWork.LocaleHelper.SELECTED_LANGUAGE
 import com.amrabdelhamiddiab.core.data.IPreferenceHelper
 
 class PreferenceManager constructor(context: Context) : IPreferenceHelper {
@@ -28,6 +29,7 @@ class PreferenceManager constructor(context: Context) : IPreferenceHelper {
         const val SHARE_VALUE_TOTAL = "shareValueTotal"
 
         const val CURRENT_TIME = "currentTime"
+        const val REPEATS_COUNT = "repeats_count"
     }
 
     private val PREFS_NAME = "CharityPreferences"
@@ -212,7 +214,16 @@ class PreferenceManager constructor(context: Context) : IPreferenceHelper {
     }
 
     override fun getSavedLanguageChoice(): String {
-        return preferences[LocaleHelper.SELECTED_LANGUAGE] ?: ""
+        return preferences[SELECTED_LANGUAGE] ?: ""
+    }
+
+    override fun setSavedRemindersChoice(repeatsCount: Long) {
+        preferences[REPEATS_COUNT] = repeatsCount
+    }
+
+    override fun getSavedRemindersChoice(): Long {
+        return preferences[REPEATS_COUNT] ?: 0L
+
     }
 
     override fun clearPrefs() {

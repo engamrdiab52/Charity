@@ -1,48 +1,85 @@
 package com.amrabdelhamiddiab.charity.presentation.settings
 
-import android.content.Context
-import android.content.SharedPreferences
-import android.os.Build
 import android.os.Bundle
-import android.os.LocaleList
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.amrabdelhamiddiab.charity.R
 import com.amrabdelhamiddiab.charity.databinding.FragmentSettingsBinding
 import com.amrabdelhamiddiab.charity.frameWork.CharityViewModelFactory.application
 import com.amrabdelhamiddiab.charity.frameWork.LocaleHelper
 import com.amrabdelhamiddiab.charity.frameWork.PreferenceManager
-import java.util.*
 
 class SettingsFragment : Fragment() {
-    private lateinit var radioGroup: RadioGroup
+    companion object{
+        const val ONE_PER_DAY = 1440L
+        const val ONE_PER_WEEK = 10080L
+        const val TWO_PER_WEEK = 5040L
+        const val TWO_PER_DAY = 720L
+        const val THREE_PER_WEEK = 3360L
+    }
+    private lateinit var radioGroupLanguage: RadioGroup
+    private lateinit var radioGroupRepeats: RadioGroup
     private lateinit var binding: FragmentSettingsBinding
     private val preferencesHelper = PreferenceManager(application.applicationContext)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_settings, container, false)
-        radioGroup = binding.radioGroupLanguage
-        when (preferencesHelper.getSavedLanguageChoice()){
-            "en" -> radioGroup.check(R.id.radio_button_english)
-            "ar" -> radioGroup.check(R.id.radio_button_arabic)
+        radioGroupLanguage = binding.radioGroupLanguage
+        radioGroupRepeats = binding.radioGroupRepeats
+
+        when (preferencesHelper.getSavedLanguageChoice()) {
+            "en" -> radioGroupLanguage.check(R.id.radio_button_english)
+            "ar" -> radioGroupLanguage.check(R.id.radio_button_arabic)
         }
-        radioGroup.setOnCheckedChangeListener { radioGroup, i ->
+        when (preferencesHelper.getSavedRemindersChoice()){
+            ONE_PER_DAY -> radioGroupRepeats.check(R.id.radio_button_once_day)
+            ONE_PER_WEEK -> radioGroupRepeats.check(R.id.radio_button_once_week)
+            TWO_PER_DAY -> radioGroupRepeats.check(R.id.radio_button_twice_day)
+            TWO_PER_WEEK -> radioGroupRepeats.check(R.id.radio_button_twice_week)
+            THREE_PER_WEEK -> radioGroupRepeats.check(R.id.radio_button_three_week)
+        }
+        radioGroupLanguage.setOnCheckedChangeListener { _, i ->
             when (i) {
                 R.id.radio_button_english -> {
-                    LocaleHelper.setLocale(requireContext(), "en")
+                    LocaleHelper.setLocale(requireActivity(), "en")
+                    requireActivity().recreate()
                 }
                 R.id.radio_button_arabic -> {
-                    LocaleHelper.setLocale(requireContext(), "ar")
+                    LocaleHelper.setLocale(requireActivity(), "ar")
+                    requireActivity().recreate()
+                }
+            }
+        }
+        radioGroupRepeats.setOnCheckedChangeListener { _, i ->
+            when (i) {
+                R.id.radio_button_once_week -> {
+                    preferencesHelper.setSavedRemindersChoice(TWO_PER_WEEK)
+                   // Toast.makeText(requireContext(), "radio_button_once_week", Toast.LENGTH_SHORT)
+                   //     .show()
+                }
+                R.id.radio_button_once_day -> {
+                    preferencesHelper.setSavedRemindersChoice(ONE_PER_DAY)
+                }
+                R.id.radio_button_twice_week -> {
+                    preferencesHelper.setSavedRemindersChoice(TWO_PER_WEEK)
+                }
+                R.id.radio_button_twice_day -> {
+                    preferencesHelper.setSavedRemindersChoice(TWO_PER_DAY)
+                }
+                R.id.radio_button_three_week -> {
+                    preferencesHelper.setSavedRemindersChoice(THREE_PER_WEEK)
                 }
             }
         }

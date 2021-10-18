@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/currentBalanceFragment"
         android:name="com.amrabdelhamiddiab.charity.presentation.currentBalance.CurrentBalanceFragment"
-        android:label="Total Balance" />
+        android:label="@string/total_balance" />
     <fragment
         android:id="@+id/historyFragment"
         android:name="com.amrabdelhamiddiab.charity.presentation.history.HistoryFragment"
@@ -16,7 +16,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.amrabdelhamiddiab.charity.presentation.home.HomeFragment"
-        android:label="HomeFragment" >
+        android:label="@string/home" >
         <action
             android:id="@+id/action_homeFragment_to_newTargetFragment"
             app:destination="@id/newTargetFragment"
@@ -30,7 +30,7 @@
     <fragment
         android:id="@+id/newTargetFragment"
         android:name="com.amrabdelhamiddiab.charity.presentation.newTarget.NewTargetFragment"
-        android:label="fragment_new_target"
+        android:label="New Targets"
         tools:layout="@layout/fragment_new_target" >
         <action
             android:id="@+id/action_newTargetFragment_to_homeFragment"
@@ -42,5 +42,5 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.amrabdelhamiddiab.charity.presentation.settings.SettingsFragment"
-        android:label="SettingsFragment" />
+        android:label="@string/settings" />
 </navigation>

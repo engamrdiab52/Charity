@@ -60,5 +60,9 @@ interface IPreferenceHelper {
     fun getPreviousSavedTime(): Long
 
     fun getSavedLanguageChoice(): String
+
+    fun setSavedRemindersChoice(repeatsCount:Long)
+    fun getSavedRemindersChoice(): Long
+
     fun clearPrefs()
 }

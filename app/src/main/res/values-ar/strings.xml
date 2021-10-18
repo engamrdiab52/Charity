@@ -33,7 +33,17 @@
     <string name="pray_description">كم تنوى أن تدعوا بالغيب للأخرين؟</string>
     <string name="kind_description">كم تنوى أن تتكلم بالطيب سواء فى الواقع أو عبر مواقع التواصل الإجتماعى</string>
     <string name="help_description">كم تنوى أن تساعد الاخرين سواء الاسرة نفسها أو فى عملك أو الاصدقاء أو الأهل أو اشخاص لاتعرفها</string>
-    <string name="money_description">كم المبلغ الذى تنوى به التصدق هذا الشهر</string>
+    <string name="money_description">كم المبلغ الذى تنوى أن تتصدق به هذا الشهر</string>
     <string name="for_the_4_weeks_from_now">لفترة أربعة اسابيع من الأن</string>
     <string name="quantity_of_units">كمية الوحدات</string>
+    <string name="max_value">القيمة النهائية</string>
+    <string name="new_targets">إعداد أهداف جديدة</string>
+    <string name="kind">العطف</string>
+    <string name="language">اللغة</string>
+    <string name="reminders">عدد مرات التذكير</string>
+    <string name="once_a_week">مرة واحدة أسبوعياً</string>
+    <string name="once_a_day">مرة واحدة يومياً</string>
+    <string name="twice_a_week">مرتين فى الاسبوع</string>
+    <string name="twice_a_day">مرتين فى اليوم</string>
+    <string name="three_times_a_week">ثلاث مرات فى الاسبوع</string>
 </resources>

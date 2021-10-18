@@ -18,21 +18,100 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/textView6">
 
             <RadioButton
                 android:id="@+id/radio_button_english"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/english" />
+                android:text="@string/english"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <RadioButton
                 android:id="@+id/radio_button_arabic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/arabic" />
+                android:text="@string/arabic"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        </RadioGroup>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/white_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radio_group_language" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/language"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/reminders"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
+
+        <RadioGroup
+            android:id="@+id/radio_group_repeats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/textView7"
+            app:layout_constraintTop_toBottomOf="@+id/textView7">
+
+            <RadioButton
+                android:id="@+id/radio_button_once_week"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/once_a_week"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/radio_button_once_day"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/once_a_day"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/radio_button_twice_week"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/twice_a_week"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/radio_button_twice_day"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/twice_a_day"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/radio_button_three_week"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/three_times_a_week"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
         </RadioGroup>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

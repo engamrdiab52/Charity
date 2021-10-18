@@ -7,6 +7,7 @@
     <string name="history" translatable="false">History</string>
     <string name="profits">Profits</string>
     <string name="settings">Settings</string>
+    <string name="new_targets">New Targets</string>
     <string name="quantity_of_units">Quantity of units</string>
     <string name="explain_the_item_here" translatable="false">explain the item here</string>
     <string name="input_field" translatable="false">input field</string>
@@ -22,6 +23,7 @@
     <string name="status_bar" translatable="false">status bar</string>
     <string name="_0" translatable="false">0</string>
     <string name="help">Help</string>
+    <string name="kind">Kind</string>
     <string name="kind_words">Kind words</string>
     <string name="pray">Pray</string>
     <string name="smile">Smile</string>
@@ -34,7 +36,7 @@
     <string name="new_value">New value=</string>
     <string name="_150" translatable="false">150</string>
     <string name="text_ok">OK</string>
-    <string name="max_value" translatable="false">Max value= </string>
+    <string name="max_value">Max value= </string>
     <string name="edit">EDIT</string>
     <string name="ok">OK</string>
     <string name="you_are_3_days_late">You are 3 days late</string>
@@ -52,6 +54,13 @@
         <item>Edit an existing project</item>
     </string-array>
     <string name="current_balance">Current Balance</string>
-    <string name="english">English</string>
-    <string name="arabic">Arabic</string>
+    <string name="english" translatable="false">English</string>
+    <string name="arabic" translatable="false">العربية</string>
+    <string name="language">Language</string>
+    <string name="reminders">Reminders</string>
+    <string name="once_a_week">Once a week</string>
+    <string name="once_a_day">Once a day</string>
+    <string name="twice_a_week">Twice a week</string>
+    <string name="twice_a_day">Twice a day</string>
+    <string name="three_times_a_week">Three times a week</string>
 </resources>

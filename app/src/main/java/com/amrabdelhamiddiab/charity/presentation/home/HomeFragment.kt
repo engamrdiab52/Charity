@@ -18,7 +18,7 @@ import com.amrabdelhamiddiab.charity.frameWork.targetScreenDataList
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var viewPager2 : ViewPager2
+    private lateinit var viewPager2: ViewPager2
     private val viewModel: HomeViewModel by lazy {
         ViewModelProvider(this, CharityViewModelFactory)[HomeViewModel::class.java]
     }
@@ -32,13 +32,25 @@ class HomeFragment : Fragment() {
             })
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
         if (viewModel.startNewProject()) {
+            viewModel.setMoneyMaxValue(0)
+            viewModel.setHelpMaxValue(0)
+            viewModel.setPrayMaxValue(0)
+            viewModel.setKindMaxValue(0)
+            viewModel.setShareMaxValue(0)
+            viewModel.setSmileMaxValue(0)
             findNavController().navigate(R.id.action_homeFragment_to_newTargetFragment)
+
         }
         viewPager2 = binding.viewPager
         viewPager2.adapter = adapter
@@ -72,6 +84,7 @@ class HomeFragment : Fragment() {
         viewPager2.addItemDecoration(itemDecoration)
         return binding.root
     }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_edit, menu)
     }

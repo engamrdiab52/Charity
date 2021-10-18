@@ -3,11 +3,17 @@ package com.amrabdelhamiddiab.charity
 import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.content.Context
 import android.os.Build
 import com.amrabdelhamiddiab.charity.frameWork.CharityViewModelFactory
+import com.amrabdelhamiddiab.charity.frameWork.LocaleHelper.onAttach
 import com.amrabdelhamiddiab.core.domain.Constants.CHANNEL_ID_PERIOD_WORK
 
 class CharityApp : Application() {
+    override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(base?.let { onAttach(it, "en") })
+    }
+
     override fun onCreate() {
         super.onCreate()
         CharityViewModelFactory.inject(this)

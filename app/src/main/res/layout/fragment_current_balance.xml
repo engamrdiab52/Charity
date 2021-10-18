@@ -26,7 +26,7 @@
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white_gray"
                 android:padding="8dp"
@@ -38,7 +38,7 @@
             android:id="@+id/view_pager_current_balance"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@color/blue_200"
+            android:background="@color/white_gray"
             android:orientation="vertical"
             android:layout_marginBottom="0dp"
             app:layout_constraintBottom_toTopOf="@+id/spring_dots_indicator_current_balance"

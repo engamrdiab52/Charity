@@ -35,6 +35,31 @@ val moneyTotalValue: Int get() = preferencesHelper.getMoneyValueTotal()
 
     val savedTime: Long get() = preferencesHelper.getPreviousSavedTime()
     ////////////////////////////
+    fun setMoneyMaxValue(moneyValueMax: Int) {
+        preferencesHelper.setMoneyValueMax(moneyValueMax)
+    }
+
+    fun setHelpMaxValue(helpValueMax: Int) {
+        preferencesHelper.setHelpValueMax(helpValueMax)
+    }
+
+    fun setKindMaxValue(kindValueMax: Int) {
+        preferencesHelper.setKindValueMax(kindValueMax)
+    }
+
+    fun setPrayMaxValue(prayValueMax: Int) {
+        preferencesHelper.setPrayValueMax(prayValueMax)
+    }
+
+    fun setSmileMaxValue(smileValueMax: Int) {
+        preferencesHelper.setSmileValueMax(smileValueMax)
+    }
+
+    fun setShareMaxValue(shareValueMax: Int) {
+        preferencesHelper.setShareValueMax(shareValueMax)
+    }
+
+
     fun setMoneyValue(moneyValue: Int) {
         preferencesHelper.setMoneyValue(moneyValue)
     }

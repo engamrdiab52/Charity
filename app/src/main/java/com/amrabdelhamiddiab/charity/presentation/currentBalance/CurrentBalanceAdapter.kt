@@ -58,7 +58,8 @@ class CurrentBalanceAdapter(
                         totalValueFromViewModel = viewModel.moneyTotalValue
                         Log.d(TAG, "AFTER ::: ${viewModel.moneyTotalValue}")
                     }
-                    "Money".also { tvCurrentThing.text = it }
+                 //   "Money".also { tvCurrentThing.text = it }
+                    tvCurrentThing.setText(R.string.money)
                     tvCurrentBalance.text = totalValueFromViewModel.toString()
                     imageViewTotal.setImageResource(R.drawable.mony_profits)
                 }
@@ -68,7 +69,8 @@ class CurrentBalanceAdapter(
                         viewModel.setHelpValueTotal(0)
                         totalValueFromViewModel = viewModel.helpTotalValue
                     }
-                    "Help".also { tvCurrentThing.text = it }
+                   // "Help".also { tvCurrentThing.text = it }
+                    tvCurrentThing.setText(R.string.help)
                     tvCurrentBalance.text = totalValueFromViewModel.toString()
                     imageViewTotal.setImageResource(R.drawable.help_total)
                 }
@@ -78,7 +80,8 @@ class CurrentBalanceAdapter(
                         viewModel.setKindValueTotal(0)
                         totalValueFromViewModel = viewModel.kindTotalValue
                     }
-                    "Kind".also { tvCurrentThing.text = it }
+                   // "Kind".also { tvCurrentThing.text = it }
+                    tvCurrentThing.setText(R.string.kind)
                     tvCurrentBalance.text = totalValueFromViewModel.toString()
                     imageViewTotal.setImageResource(R.drawable.kind_total)
                 }
@@ -88,7 +91,8 @@ class CurrentBalanceAdapter(
                         viewModel.setPrayValueTotal(0)
                         totalValueFromViewModel = viewModel.prayTotalValue
                     }
-                    "Pray".also { tvCurrentThing.text = it }
+                   // "Pray".also { tvCurrentThing.text = it }
+                    tvCurrentThing.setText(R.string.pray)
                     tvCurrentBalance.text = totalValueFromViewModel.toString()
                     imageViewTotal.setImageResource(R.drawable.pray_total)
                 }
@@ -99,6 +103,7 @@ class CurrentBalanceAdapter(
                         totalValueFromViewModel = viewModel.smileTotalValue
                     }
                     "Smile".also { tvCurrentThing.text = it }
+                    tvCurrentThing.setText(R.string.smile)
                     tvCurrentBalance.text = totalValueFromViewModel.toString()
                     imageViewTotal.setImageResource(R.drawable.smile_total)
                 }
@@ -109,6 +114,7 @@ class CurrentBalanceAdapter(
                         totalValueFromViewModel = viewModel.shareTotalValue
                     }
                     "Share".also { tvCurrentThing.text = it }
+                    tvCurrentThing.setText(R.string.share)
                     tvCurrentBalance.text = totalValueFromViewModel.toString()
                     imageViewTotal.setImageResource(R.drawable.share_total)
                 }

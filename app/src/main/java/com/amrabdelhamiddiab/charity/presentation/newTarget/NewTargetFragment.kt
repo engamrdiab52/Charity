@@ -54,40 +54,12 @@ class NewTargetFragment : Fragment() {
         smile = binding.textInputEditTextSmile
         share = binding.textInputEditTextShare
 
-        if (viewModel.moneyValueMax != -1) {
-            money.setText(viewModel.moneyValueMax.toString())
-        } else {
-            money.setText("0")
-        }
-        if (viewModel.moneyValueMax != -1) {
-            help.setText(viewModel.helpValueMax.toString())
-        } else {
-            help.setText("0")
-        }
-
-        if (viewModel.moneyValueMax != -1) {
-            kind.setText(viewModel.kindValueMax.toString())
-        } else {
-            kind.setText("0")
-        }
-
-        if (viewModel.moneyValueMax != -1) {
-            pray.setText(viewModel.prayValueMax.toString())
-        } else {
-            pray.setText("0")
-        }
-
-        if (viewModel.moneyValueMax != -1) {
-            smile.setText(viewModel.smileValueMax.toString())
-        } else {
-            smile.setText("0")
-        }
-        if (viewModel.moneyValueMax != -1) {
-            share.setText(viewModel.shareValueMax.toString())
-        } else {
-            share.setText("0")
-        }
-
+        money.setText("${viewModel.moneyValueMax}")
+        help.setText("${viewModel.helpValueMax}")
+        kind.setText("${viewModel.kindValueMax}")
+        pray.setText("${viewModel.prayValueMax}")
+        smile.setText("${viewModel.prayValueMax}")
+        share.setText("${viewModel.shareValueMax}")
 
         // Inflate the layout for this fragment
         return binding.root
@@ -110,7 +82,8 @@ class NewTargetFragment : Fragment() {
                 val moneyValueMax = if (moneyString.isEmpty()) {
                     0
                 } else {
-                    if (moneyString.toInt() < viewModel.moneyCurrentValue) {
+                    moneyString.toInt()
+               /*     if (moneyString.toInt() < viewModel.moneyCurrentValue) {
                         Toast.makeText(
                             requireContext(),
                             "your new target value less than your saved score",
@@ -119,7 +92,7 @@ class NewTargetFragment : Fragment() {
                         viewModel.moneyValueMax
                     } else {
                         moneyString.toInt()
-                    }
+                    }*/
                 }
 
                 viewModel.setMoneyValue(moneyValueMax)

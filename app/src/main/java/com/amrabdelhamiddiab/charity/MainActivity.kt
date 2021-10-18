@@ -1,10 +1,10 @@
 package com.amrabdelhamiddiab.charity
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.RadioGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -24,11 +24,17 @@ import com.amrabdelhamiddiab.core.data.IPreferenceHelper
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import java.util.concurrent.TimeUnit
+import android.content.res.Configuration
+import android.util.Log
+import com.amrabdelhamiddiab.charity.frameWork.LocaleHelper
+import com.amrabdelhamiddiab.charity.presentation.settings.SettingsFragment.Companion.ONE_PER_DAY
+
 
 class MainActivity : AppCompatActivity() {
     companion object {
         const val TAG = "MainActivity"
     }
+
 
     private val navController: NavController by lazy {
         Navigation.findNavController(this, R.id.nav_host_fragment_content_main)
@@ -50,6 +56,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         preferenceHelper = PreferenceManager(this.applicationContext)
+        LocaleHelper.setLocale(this, preferenceHelper.getSavedLanguageChoice())
         drawerLayout = binding.drawerLayout
         navigationView = binding.navigationView
         toolbar = binding.appBarMain.toolbar
@@ -72,9 +79,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun firePeriodicNotification() {
+        if (preferenceHelper.getSavedRemindersChoice() == -1L){
+            Log.d(TAG, "intervalTime:::  ${preferenceHelper.getSavedRemindersChoice()}")
+             preferenceHelper.setSavedRemindersChoice(ONE_PER_DAY)
+            Log.d(TAG, "intervalTime:::  ${preferenceHelper.getSavedRemindersChoice()}")
+        }
         val periodicTimeWork = PeriodicWorkRequest.Builder(
             PeriodicBackgroundNotification::class.java,
-            16,
+            preferenceHelper.getSavedRemindersChoice(),
             TimeUnit.MINUTES
         ).addTag("com.amrabdelhamiddiab.charity.periodic-pending-notification")
             .setConstraints(constraints)
@@ -108,11 +120,18 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_settings -> {
-                navController.navigate(R.id.settingsFragment)
+               navController.navigate(R.id.settingsFragment)
                 true
             }
             else -> super.onOptionsItemSelected(item)
-
         }
+    }
+
+  /*  override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        LocaleHelper22.setLocale(this, preferenceHelper.getSavedLanguageChoice())
+    }*/
+    override fun attachBaseContext(base: Context){
+        super.attachBaseContext(LocaleHelper.onAttach(base))
     }
 }
