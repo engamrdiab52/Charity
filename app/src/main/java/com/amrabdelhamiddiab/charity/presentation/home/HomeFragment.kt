@@ -134,7 +134,7 @@ class HomeFragment : Fragment() {
                 Log.d(TAG, "edit presses")
                 true
             }
-            R.id.menu_add -> {
+       /*     R.id.menu_add -> {
                 viewModel.counterForFakeTime++
                 if (viewModel.counterForFakeTime >= 29) {
                     viewModel.fakeTime -= (28 * DAY)
@@ -144,7 +144,7 @@ class HomeFragment : Fragment() {
                 Log.d(TAG, "${viewModel.fakeTime} +  ${viewModel.counterForFakeTime}")
                 adapter.run { notifyDataSetChanged() }
                 true
-            }
+            }*/
             else -> super.onOptionsItemSelected(item)
         }
     }

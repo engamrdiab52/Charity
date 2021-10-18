@@ -7,10 +7,10 @@
         android:title="@string/edit"
         app:showAsAction="always">
     </item>
-    <item
+<!--    <item
         android:id="@+id/menu_add"
         android:icon="@drawable/ic_add_box"
         android:title="@string/add"
         app:showAsAction="ifRoom">
-    </item>
+    </item>-->
 </menu>

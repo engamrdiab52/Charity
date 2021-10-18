@@ -22,6 +22,7 @@ import com.amrabdelhamiddiab.charity.frameWork.TargetScreenData
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.progressindicator.LinearProgressIndicator
 import com.google.android.material.textfield.TextInputEditText
+import java.util.*
 import kotlin.math.roundToInt
 
 class ViewPagerAdapter(
@@ -292,23 +293,25 @@ class ViewPagerAdapter(
 
         private fun estimateWeek(): Int {
             var value = 0
+            //(viewModel.savedTime + viewModel.fakeTime)
             when {
-                ((viewModel.savedTime + viewModel.fakeTime) - viewModel.savedTime) <= (HomeFragment.DAY * 7) -> {
+                (Date().time - viewModel.savedTime) <= (HomeFragment.DAY * 7) -> {
                     value = 1
                 }
-                ((viewModel.savedTime + viewModel.fakeTime) - viewModel.savedTime) > (HomeFragment.DAY * 7) &&
+                (Date().time  - viewModel.savedTime) > (HomeFragment.DAY * 7) &&
                         ((viewModel.savedTime + viewModel.fakeTime) - viewModel.savedTime) <= (HomeFragment.DAY * 7 * 2) -> {
                     value = 2
                 }
-                ((viewModel.savedTime + viewModel.fakeTime) - viewModel.savedTime) > (HomeFragment.DAY * 7 * 2) &&
+                (Date().time  - viewModel.savedTime) > (HomeFragment.DAY * 7 * 2) &&
                         ((viewModel.savedTime + viewModel.fakeTime) - viewModel.savedTime) <= (HomeFragment.DAY * 7 * 3) -> {
                     value = 3
                 }
-                ((viewModel.savedTime + viewModel.fakeTime) - viewModel.savedTime) > (HomeFragment.DAY * 7 * 3) &&
-                        ((viewModel.savedTime + viewModel.fakeTime) - viewModel.savedTime) < ((HomeFragment.DAY * 7 * 4) + HomeFragment.DAY) -> {
+                (Date().time  - viewModel.savedTime) > (HomeFragment.DAY * 7 * 3) &&
+                        ((viewModel.savedTime + viewModel.fakeTime) - viewModel.savedTime) <= ((HomeFragment.DAY * 7 * 4) + HomeFragment.DAY) -> {
                     value = 4
                 }
             }
+            Log.d(TAG, "n::::: $value")
             return value
         }
 
@@ -317,11 +320,8 @@ class ViewPagerAdapter(
                 "".also { statusView.text = it }
             } else {
                 when {
-                    value > (25.0 * n) -> {
+                    value >= (25.0 * n) -> {
                         "awesome".also { statusView.text = it }
-                    }
-                    value == (25.0 * n) -> {
-                        "Perfect".also { statusView.text = it }
                     }
                     value in (21.0 * n)..(24.99 * n) -> {
                         "Excellent".also { statusView.text = it }
