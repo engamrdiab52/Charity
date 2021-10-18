@@ -7,7 +7,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -28,9 +27,7 @@ import kotlin.math.roundToInt
 class ViewPagerAdapter(
     private val targetList: List<TargetScreenData>,
     private val viewModel: HomeViewModel,
-    private val context: Context,
-    private val onClickListener: OnClickListener
-
+    private val context: Context
 ) :
     RecyclerView.Adapter<ViewPagerAdapter.ViewPagerHolder>() {
 
@@ -43,8 +40,7 @@ class ViewPagerAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewPagerHolder, position: Int) {
-        val targetObject = targetList[position]
-        holder.bind(targetObject.imageRes, viewModel, targetObject.stringRes)
+        holder.bind(viewModel)
     }
 
     override fun getItemCount(): Int {
@@ -74,7 +70,7 @@ class ViewPagerAdapter(
         private val statusTv = itemView.findViewById<TextView>(R.id.tv_status)
         private val editGoalButton = itemView.findViewById<MaterialButton>(R.id.btn_edit_goal)
         private val imageViewCompleted = itemView.findViewById<ImageView>(R.id.image_view_completed)
-        fun bind(image: Int, viewModel: HomeViewModel, itemString: Int) {
+        fun bind( viewModel: HomeViewModel) {
             when (itemViewType) {
                 MONEY -> {
                     imageViewCompleted.visibility = viewModel.showMoneyDone()
@@ -356,7 +352,7 @@ class ViewPagerAdapter(
             var valueString: String? = ""
             var valueFromViewModel = 0
             var maxValueFromViewModel = 0
-            var totalValueFromViewModel = 0
+            var totalValueFromViewModel :Int
             val layoutMe = MaterialDialog(
                 context
             ).customView(R.layout.layout_bottom_sheet).cornerRadius(8f)
@@ -576,11 +572,6 @@ class ViewPagerAdapter(
         }
 
     }
-
-    class OnClickListener(val clickListener: (imageResource: Int) -> Unit) {
-        fun onClick(imageResource: Int) = clickListener(imageResource)
-    }
-
 
     companion object {
         const val MONEY: Int = 0

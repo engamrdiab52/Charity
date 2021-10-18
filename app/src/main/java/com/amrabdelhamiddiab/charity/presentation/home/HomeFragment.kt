@@ -5,10 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.afollestad.materialdialogs.LayoutMode
 import com.afollestad.materialdialogs.MaterialDialog
@@ -25,6 +23,7 @@ import com.amrabdelhamiddiab.charity.frameWork.HorizontalMarginItemDecoration
 import com.amrabdelhamiddiab.charity.frameWork.targetScreenDataList
 import com.google.android.material.textfield.TextInputEditText
 import java.util.*
+import kotlin.math.abs
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
@@ -48,14 +47,11 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by lazy {
         ViewModelProvider(this, CharityViewModelFactory)[HomeViewModel::class.java]
     }
-    val adapter by lazy {
+    private val adapter by lazy {
         ViewPagerAdapter(
             targetScreenDataList,
             viewModel,
-            requireContext(),
-            ViewPagerAdapter.OnClickListener {
-                Toast.makeText(requireContext(), "done", Toast.LENGTH_SHORT).show()
-            })
+            requireContext())
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,7 +62,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
         viewPager2 = binding.viewPager
         viewPager2.adapter = adapter
@@ -93,7 +89,7 @@ class HomeFragment : Fragment() {
         val pageTransformer = ViewPager2.PageTransformer { page: View, position: Float ->
             page.translationX = -pageTranslationX * position
             // Next line scales the item's height. You can remove it if you don't want this effect
-            page.scaleY = 1 - (0.20f * Math.abs(position))
+            page.scaleY = 1 - (0.20f * abs(position))
             // If you want a fading effect uncomment the next line:
             // page.alpha = 0.25f + (1 - abs(position))
         }
@@ -274,11 +270,6 @@ class HomeFragment : Fragment() {
         }
 
     }
-
-    private fun displayToast(message: String?) {
-        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
-    }
-
     companion object {
         const val DAY: Long = 68400000
     }

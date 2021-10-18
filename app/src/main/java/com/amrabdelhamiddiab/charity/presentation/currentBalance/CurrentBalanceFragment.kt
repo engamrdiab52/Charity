@@ -11,8 +11,6 @@ import androidx.viewpager2.widget.ViewPager2
 import com.amrabdelhamiddiab.charity.R
 import com.amrabdelhamiddiab.charity.databinding.FragmentCurrentBalanceBinding
 import com.amrabdelhamiddiab.charity.frameWork.CharityViewModelFactory
-import com.amrabdelhamiddiab.charity.frameWork.HorizontalMarginItemDecoration
-import com.amrabdelhamiddiab.charity.presentation.home.HomeViewModel
 
 class CurrentBalanceFragment : Fragment() {
     private lateinit var binding: FragmentCurrentBalanceBinding
@@ -22,15 +20,15 @@ class CurrentBalanceFragment : Fragment() {
         ViewModelProvider(this, CharityViewModelFactory)[CurrentBalanceViewModel::class.java]
     }
 
-    val adapter: CurrentBalanceAdapter by lazy {
-        CurrentBalanceAdapter( viewModel, requireContext())
+    private val adapter: CurrentBalanceAdapter by lazy {
+        CurrentBalanceAdapter( viewModel)
     }
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_current_balance, container, false)
         viewPager2 = binding.viewPagerCurrentBalance

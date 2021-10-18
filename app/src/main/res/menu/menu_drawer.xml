@@ -12,10 +12,4 @@
         android:id="@+id/settingsFragment"
         android:icon="@drawable/ic_outline_settings_24"
         android:title="@string/settings"/>
-
-   <!-- <item
-        android:id="@+id/profitsFragment"
-        android:icon="@drawable/ic_outline_diamond"
-        android:title="@string/profits" /> -->
-
 </menu>

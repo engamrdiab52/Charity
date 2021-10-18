@@ -8,12 +8,4 @@
         android:id="@+id/currentBalanceFragment"
         android:title="@string/total_balance"
         android:icon="@drawable/ic_outline_account_balance_wallet"/>
- <!--   <item
-        android:id="@+id/historyFragment"
-        android:icon="@drawable/ic_outline_account_balance"
-        android:title="@string/history" />
-    <item
-        android:id="@+id/profitsFragment"
-        android:icon="@drawable/ic_outline_diamond"
-        android:title="@string/profits" /> -->
 </menu>

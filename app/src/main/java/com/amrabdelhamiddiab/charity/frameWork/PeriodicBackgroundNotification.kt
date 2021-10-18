@@ -1,7 +1,6 @@
 package com.amrabdelhamiddiab.charity.frameWork
 
 import android.app.PendingIntent
-import android.app.TaskStackBuilder
 import android.content.Context
 import android.content.Intent
 import android.media.RingtoneManager
@@ -33,7 +32,7 @@ class PeriodicBackgroundNotification(
             // Get the PendingIntent containing the entire back stack
             getPendingIntent(1, PendingIntent.FLAG_UPDATE_CURRENT)
         }*/
-        val pendingIntent: PendingIntent = PendingIntent.getActivity(context, 1, intent, 0)
+        val pendingIntent: PendingIntent = PendingIntent.getActivity(context, 1, intent,0)
 
         val notification = NotificationCompat.Builder(context, CHANNEL_ID_PERIOD_WORK).apply {
             setContentIntent(pendingIntent)

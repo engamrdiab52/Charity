@@ -1,6 +1,5 @@
 package com.amrabdelhamiddiab.charity.presentation.currentBalance
 
-import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -10,21 +9,15 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.amrabdelhamiddiab.charity.MainActivity.Companion.TAG
 import com.amrabdelhamiddiab.charity.R
-import com.amrabdelhamiddiab.charity.databinding.ActivityMainBinding.inflate
-import com.amrabdelhamiddiab.charity.frameWork.TargetScreenData
-import com.amrabdelhamiddiab.charity.presentation.home.HomeViewModel
-import com.amrabdelhamiddiab.charity.presentation.home.ViewPagerAdapter
 import com.amrabdelhamiddiab.charity.presentation.home.ViewPagerAdapter.Companion.HELP
 import com.amrabdelhamiddiab.charity.presentation.home.ViewPagerAdapter.Companion.KIND
 import com.amrabdelhamiddiab.charity.presentation.home.ViewPagerAdapter.Companion.MONEY
 import com.amrabdelhamiddiab.charity.presentation.home.ViewPagerAdapter.Companion.PRAY
 import com.amrabdelhamiddiab.charity.presentation.home.ViewPagerAdapter.Companion.SHARE
 import com.amrabdelhamiddiab.charity.presentation.home.ViewPagerAdapter.Companion.SMILE
-import kotlin.math.roundToInt
 
 class CurrentBalanceAdapter(
-    private val viewModel: CurrentBalanceViewModel,
-    private val context: Context
+    private val viewModel: CurrentBalanceViewModel
 ) : RecyclerView.Adapter<CurrentBalanceAdapter.ViewHolderCurrentBalance>() {
 
 

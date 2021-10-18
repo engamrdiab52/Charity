@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav_graph"
     app:startDestination="@id/homeFragment">
 
@@ -10,35 +9,11 @@
         android:name="com.amrabdelhamiddiab.charity.presentation.currentBalance.CurrentBalanceFragment"
         android:label="@string/total_balance" />
     <fragment
-        android:id="@+id/historyFragment"
-        android:name="com.amrabdelhamiddiab.charity.presentation.history.HistoryFragment"
-        android:label="HistoryFragment" />
-    <fragment
         android:id="@+id/homeFragment"
         android:name="com.amrabdelhamiddiab.charity.presentation.home.HomeFragment"
         android:label="@string/home" >
-        <action
-            android:id="@+id/action_homeFragment_to_newTargetFragment"
-            app:destination="@id/newTargetFragment"
-            app:launchSingleTop="true"
-            app:popUpTo="@id/homeFragment"/>
     </fragment>
-    <fragment
-        android:id="@+id/profitsFragment"
-        android:name="com.amrabdelhamiddiab.charity.presentation.profits.ProfitsFragment"
-        android:label="ProfitsFragment" />
-    <fragment
-        android:id="@+id/newTargetFragment"
-        android:name="com.amrabdelhamiddiab.charity.presentation.newTarget.NewTargetFragment"
-        android:label="@string/new_targets"
-        tools:layout="@layout/fragment_new_target" >
-        <action
-            android:id="@+id/action_newTargetFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:popUpToInclusive="true"
-            app:launchSingleTop="true"
-            app:popUpTo="@id/newTargetFragment"/>
-    </fragment>
+
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.amrabdelhamiddiab.charity.presentation.settings.SettingsFragment"

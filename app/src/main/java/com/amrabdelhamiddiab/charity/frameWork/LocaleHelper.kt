@@ -14,7 +14,7 @@ import java.util.*
 
 object LocaleHelper {
      const val SELECTED_LANGUAGE = "Locale.Helper.Selected.Language"
-     val PREFS_NAME = "CharityPreferences"
+     const val PREFS_NAME = "CharityPreferences"
 
     fun onAttach(context: Context): Context {
         val lang = getPersistedData(context, Locale.getDefault().language)
@@ -25,10 +25,10 @@ object LocaleHelper {
         val lang = getPersistedData(context, defaultLanguage)
         return setLocale(context, lang)
     }
-
+/*
     fun getLanguage(context: Context): String? {
         return getPersistedData(context, Locale.getDefault().language)
-    }
+    }*/
 
      fun setLocale(context: Context, language: String?): Context {
         persist(context, language)

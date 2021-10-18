@@ -2,14 +2,13 @@ package com.amrabdelhamiddiab.charity.presentation.home
 
 import android.app.Application
 import android.view.View
-import androidx.lifecycle.ViewModel
 import com.amrabdelhamiddiab.charity.frameWork.CharityViewModel
 import com.amrabdelhamiddiab.charity.frameWork.PreferenceManager
 
 class HomeViewModel(application: Application) : CharityViewModel(application) {
     private val preferencesHelper = PreferenceManager(application.applicationContext)
     var fakeTime: Long = 0
-    var counterForFakeTime: Int = 0
+   // var counterForFakeTime: Int = 0
     //////////////////////////////////
     val moneyCurrentValue: Int get() = preferencesHelper.getMoneyValue()
     val helpCurrentValue: Int get() = preferencesHelper.getHelpValue()
