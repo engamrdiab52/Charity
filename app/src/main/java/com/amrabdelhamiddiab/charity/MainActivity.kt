@@ -122,21 +122,6 @@ class MainActivity : AppCompatActivity() {
             super.onBackPressed()
         }
     }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.action_settings -> {
-               navController.navigate(R.id.settingsFragment)
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
-  /*  override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        LocaleHelper22.setLocale(this, preferenceHelper.getSavedLanguageChoice())
-    }*/
     override fun attachBaseContext(base: Context){
         super.attachBaseContext(LocaleHelper.onAttach(base))
     }
