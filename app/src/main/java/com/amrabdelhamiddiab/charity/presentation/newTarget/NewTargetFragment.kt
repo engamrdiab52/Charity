@@ -83,16 +83,6 @@ class NewTargetFragment : Fragment() {
                     0
                 } else {
                     moneyString.toInt()
-               /*     if (moneyString.toInt() < viewModel.moneyCurrentValue) {
-                        Toast.makeText(
-                            requireContext(),
-                            "your new target value less than your saved score",
-                            Toast.LENGTH_LONG
-                        ).show()
-                        viewModel.moneyValueMax
-                    } else {
-                        moneyString.toInt()
-                    }*/
                 }
 
                 viewModel.setMoneyValue(moneyValueMax)

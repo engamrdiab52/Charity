@@ -70,8 +70,9 @@
             android:layout_marginEnd="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintBottom_toBottomOf="@+id/tv_status"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/image_view_completed"
             app:layout_constraintTop_toTopOf="@+id/tv_status"
+            app:layout_constraintVertical_bias="1.0"
             tools:text="20/80" />
 
         <ImageView
@@ -92,8 +93,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginBottom="8dp"
-            android:textColor="@color/blue_700"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/blue_700"
             app:layout_constraintBottom_toTopOf="@+id/progress_bar"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="You can edit the target" />

@@ -76,7 +76,7 @@ class ViewPagerAdapter(
         fun bind(image: Int, viewModel: HomeViewModel, itemString: Int) {
             when (itemViewType) {
                 MONEY -> {
-
+                    imageViewCompleted.visibility = viewModel.showMoneyDone()
                     //////////////////////////////////////
                     "${viewModel.moneyCurrentValue}/${viewModel.moneyMaxValue}".also {
                         currentRatio.text = it
@@ -109,6 +109,7 @@ class ViewPagerAdapter(
                     }
                 }
                 HELP -> {
+                    imageViewCompleted.visibility = viewModel.showHelpDone()
                     /////////////////////////
                     "${viewModel.helpCurrentValue}/${viewModel.helpMaxValue}".also {
                         currentRatio.text = it
@@ -142,6 +143,7 @@ class ViewPagerAdapter(
                     }
                 }
                 KIND -> {
+                    imageViewCompleted.visibility = viewModel.showKindDone()
                     /////////////////////////
                     "${viewModel.kindCurrentValue}/${viewModel.kindMaxValue}".also {
                         currentRatio.text = it
@@ -177,6 +179,7 @@ class ViewPagerAdapter(
                     }
                 }
                 PRAY -> {
+                    imageViewCompleted.visibility = viewModel.showPrayDone()
                     /////////////////////////
                     "${viewModel.prayCurrentValue}/${viewModel.prayMaxValue}".also {
                         currentRatio.text = it
@@ -210,6 +213,7 @@ class ViewPagerAdapter(
                     }
                 }
                 SMILE -> {
+                    imageViewCompleted.visibility = viewModel.showSmileDone()
                     /////////////////////////
                     "${viewModel.smileCurrentValue}/${viewModel.smileMaxValue}".also {
                         currentRatio.text = it
@@ -244,6 +248,7 @@ class ViewPagerAdapter(
                     }
                 }
                 SHARE -> {
+                    imageViewCompleted.visibility = viewModel.showShareDone()
                     /////////////////////////
                     "${viewModel.shareCurrentValue}/${viewModel.shareMaxValue}".also {
                         currentRatio.text = it

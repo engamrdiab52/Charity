@@ -112,7 +112,32 @@ val moneyTotalValue: Int get() = preferencesHelper.getMoneyValueTotal()
         preferencesHelper.setCurrentTime(currentTime)
     }
 
-    fun startNewProject():Boolean {
+    fun setCurrentMoneyValue(moneyValue: Int) {
+        preferencesHelper.setMoneyValue(moneyValue)
+    }
+
+    fun setCurrentHelpValue(helpValue: Int) {
+        preferencesHelper.setHelpValue(helpValue)
+    }
+
+    fun setCurrentKindValue(kindValue: Int) {
+        preferencesHelper.setKindValue(kindValue)
+    }
+
+    fun setCurrentPrayValue(prayValue: Int) {
+        preferencesHelper.setPrayValue(prayValue)
+    }
+
+    fun setCurrentSmileValue(smileValue: Int) {
+        preferencesHelper.setSmileValue(smileValue)
+    }
+
+    fun setCurrentShareValue(shareValue: Int) {
+        preferencesHelper.setShareValue(shareValue)
+    }
+
+
+    fun firstStartToApp():Boolean {
         return moneyMaxValue == -1 &&
                 helpMaxValue == -1 &&
                 kindMaxValue == -1 &&
