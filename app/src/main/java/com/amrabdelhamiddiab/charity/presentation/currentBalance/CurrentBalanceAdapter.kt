@@ -54,7 +54,7 @@ class CurrentBalanceAdapter(
                  //   "Money".also { tvCurrentThing.text = it }
                     tvCurrentThing.setText(R.string.money)
                     tvCurrentBalance.text = totalValueFromViewModel.toString()
-                    imageViewTotal.setImageResource(R.drawable.mony_profits)
+                    imageViewTotal.setImageResource(R.drawable.money_total)
                 }
                 HELP -> {
                     totalValueFromViewModel = viewModel.helpTotalValue

@@ -18,11 +18,10 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginBottom="8dp"
             android:clickable="true"
             android:focusable="true"
             android:scaleType="centerCrop"
-            app:layout_constraintBottom_toTopOf="@+id/text_view_description"
+            app:layout_constraintBottom_toTopOf="@+id/view4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -34,6 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:padding="4dp"
@@ -41,7 +41,8 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintBottom_toTopOf="@+id/tv_status"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view4" />
 
         <com.google.android.material.progressindicator.LinearProgressIndicator
             android:id="@+id/progress_bar"
@@ -100,6 +101,7 @@
             tools:text="You can edit the target" />
 
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -112,28 +114,37 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_edit_goal"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:elevation="4dp"
-                app:strokeWidth="3dp"
-                app:strokeColor="@color/blue_200"
                 android:layout_margin="4dp"
-                app:cornerRadius="16dp"
+                android:layout_weight="1"
                 android:text="@string/edit_goal"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+                app:cornerRadius="16dp"
+                app:elevation="4dp"
+                app:strokeColor="@color/blue_200"
+                app:strokeWidth="3dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/write_note"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_margin="4dp"
-                app:cornerRadius="16dp"
+                android:layout_weight="1"
                 android:text="@string/note"
                 android:visibility="gone"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+                app:cornerRadius="16dp" />
         </LinearLayout>
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

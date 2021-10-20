@@ -27,7 +27,6 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-         android:textColor="@color/white"
                 android:padding="8dp"
                 android:text="@string/total_value_statement"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
@@ -37,9 +36,9 @@
             android:id="@+id/view_pager_current_balance"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginBottom="0dp"
             android:background="@color/white_gray"
             android:orientation="vertical"
-            android:layout_marginBottom="0dp"
             app:layout_constraintBottom_toTopOf="@+id/spring_dots_indicator_current_balance"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

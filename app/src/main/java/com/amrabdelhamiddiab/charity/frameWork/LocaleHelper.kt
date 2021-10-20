@@ -71,7 +71,9 @@ object LocaleHelper {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             configuration.setLayoutDirection(locale)
         }
-        resources.updateConfiguration(configuration, resources.displayMetrics)
+        context.applicationContext.createConfigurationContext(configuration)
+        resources.displayMetrics.setTo(resources.displayMetrics)
+
         return context
     }
 }
