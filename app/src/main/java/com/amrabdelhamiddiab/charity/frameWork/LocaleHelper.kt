@@ -14,7 +14,7 @@ import java.util.*
 
 object LocaleHelper {
      const val SELECTED_LANGUAGE = "Locale.Helper.Selected.Language"
-     const val PREFS_NAME = "CharityPreferences"
+     private const val PREFS_NAME = "CharityPreferences"
 
     fun onAttach(context: Context): Context {
         val lang = getPersistedData(context, Locale.getDefault().language)
@@ -65,8 +65,8 @@ object LocaleHelper {
     private fun updateResourcesLegacy(context: Context, language: String?): Context {
         val locale = Locale(language!!)
         Locale.setDefault(locale)
-        val resources: Resources = context.getResources()
-        val configuration: Configuration = resources.getConfiguration()
+        val resources: Resources = context.resources
+        val configuration: Configuration = resources.configuration
         configuration.setLocale(locale)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             configuration.setLayoutDirection(locale)

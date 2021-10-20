@@ -51,7 +51,8 @@ class HomeFragment : Fragment() {
         ViewPagerAdapter(
             targetScreenDataList,
             viewModel,
-            requireContext())
+            requireContext()
+        )
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -105,13 +106,6 @@ class HomeFragment : Fragment() {
 
     private fun newOpen() {
         if (viewModel.firstStartToApp()) {
-            viewModel.setMoneyMaxValue(0)
-            viewModel.setHelpMaxValue(0)
-            viewModel.setPrayMaxValue(0)
-            viewModel.setKindMaxValue(0)
-            viewModel.setShareMaxValue(0)
-            viewModel.setSmileMaxValue(0)
-            //  findNavController().navigate(R.id.action_homeFragment_to_newTargetFragment)
             getNewTargetInputs()
         }
     }
@@ -125,22 +119,19 @@ class HomeFragment : Fragment() {
         return when (item.itemId) {
             R.id.menu_edit -> {
                 getNewTargetInputs()
-               // adapter.notifyDataSetChanged()
-                //  findNavController().navigate(R.id.action_homeFragment_to_newTargetFragment)
-                Log.d(TAG, "edit presses")
                 true
             }
-       /*     R.id.menu_add -> {
-                viewModel.counterForFakeTime++
-                if (viewModel.counterForFakeTime >= 29) {
-                    viewModel.fakeTime -= (28 * DAY)
-                    viewModel.counterForFakeTime = 0
-                }
-                viewModel.fakeTime += DAY
-                Log.d(TAG, "${viewModel.fakeTime} +  ${viewModel.counterForFakeTime}")
-                adapter.run { notifyDataSetChanged() }
-                true
-            }*/
+            /*     R.id.menu_add -> {
+                     viewModel.counterForFakeTime++
+                     if (viewModel.counterForFakeTime >= 29) {
+                         viewModel.fakeTime -= (28 * DAY)
+                         viewModel.counterForFakeTime = 0
+                     }
+                     viewModel.fakeTime += DAY
+                     Log.d(TAG, "${viewModel.fakeTime} +  ${viewModel.counterForFakeTime}")
+                     adapter.run { notifyDataSetChanged() }
+                     true
+                 }*/
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -151,7 +142,7 @@ class HomeFragment : Fragment() {
             BottomSheet(LayoutMode.WRAP_CONTENT)
         ).customView(R.layout.fragment_new_target).cornerRadius(16.0f)
             .positiveButton(R.string.text_ok).onDismiss {
-                getTextInputFieldsInputs()
+                this.getTextInputFieldsInputs()
             }
         initializeTextInputFields(layoutMe)
         layoutMe.show()
@@ -243,14 +234,7 @@ class HomeFragment : Fragment() {
                             val date = Date()
                             val currentMoment = date.time
                             viewModel.saveTime(currentMoment)
-                            viewModel.setCurrentMoneyValue(0)
-                            viewModel.setCurrentHelpValue(0)
-                            viewModel.setCurrentPrayValue(0)
-                            viewModel.setCurrentKindValue(0)
-                            viewModel.setCurrentSmileValue(0)
-                            viewModel.setCurrentShareValue(0)
-                            //**/*/*/*/*/*/*/*/**/*/*/*/*/*/*/*/*/*/*
-                            //     findNavController().navigate(R.id.action_newTargetFragment_to_homeFragment)
+                            viewModel.initializeCurrentValuesToZero()
                             Log.d(TAG, "SAVED TIME : " + viewModel.savedTime.toString())
                             adapter.run {
                                 notifyDataSetChanged()
@@ -260,8 +244,6 @@ class HomeFragment : Fragment() {
                             adapter.run {
                                 notifyDataSetChanged()
                             }
-                            //    displayToast("")
-                            // findNavController().navigate(R.id.action_newTargetFragment_to_homeFragment)
                         }
                     }
                 }
@@ -270,6 +252,7 @@ class HomeFragment : Fragment() {
         }
 
     }
+
     companion object {
         const val DAY: Long = 68400000
     }

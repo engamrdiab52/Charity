@@ -3,15 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/drawable-xxxhdpi/kind_image.xml" value="0.1814814814814815" />
+        <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/drawable/ic_add_box.xml" value="0.1390625" />
         <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/drawable/ic_done.xml" value="0.20185185185185187" />
         <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/drawable/ic_home.xml" value="0.2703125" />
+        <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/drawable/ic_notifications_none_blac.xml" value="0.24074074074074073" />
         <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/drawable/ic_outline_account_balance.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/drawable/ic_outline_account_balance_wallet.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/drawable/ic_outline_diamond.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/drawable/ic_outline_home.xml" value="0.2703125" />
         <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/drawable/ic_outline_settings_24.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/layout-h520dp/item_view_pager.xml" value="0.19202898550724637" />
         <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/layout-night/fragment_new_target.xml" value="0.15715579710144928" />
         <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/layout-night/fragment_settings.xml" value="0.1" />
         <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/layout-night/item_view_current_balance.xml" value="0.3844221105527638" />
@@ -21,10 +25,10 @@
         <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/layout/app_bar_main.xml" value="0.1" />
         <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/layout/fragment_current_balance.xml" value="0.2" />
         <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/layout/fragment_history.xml" value="0.1793478260869565" />
-        <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/layout/fragment_home_2.xml" value="0.18614130434782608" />
         <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/layout/fragment_home_store.xml" value="0.17708333333333334" />
-        <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/layout/fragment_new_target.xml" value="0.264" />
+        <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/layout/fragment_new_target.xml" value="0.1" />
         <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/layout/fragment_profits.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/layout/fragment_settings.xml" value="0.1" />
         <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/layout/item_view_current_balance.xml" value="0.2151268115942029" />
@@ -40,6 +44,7 @@
         <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/menu/menu_drawer.xml" value="0.1" />
         <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/menu/menu_edit.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/mipmap-anydpi-v26/ic_launcher_charity.xml" value="0.2703125" />
         <entry key="..\:/Users/engam/AndroidStudioProjects/Charity/app/src/main/res/mipmap-anydpi-v26/ic_launcher_charity2_round.xml" value="0.2703125" />
       </map>
     </option>

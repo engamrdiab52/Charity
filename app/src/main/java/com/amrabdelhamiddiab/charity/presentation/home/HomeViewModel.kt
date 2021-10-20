@@ -8,7 +8,8 @@ import com.amrabdelhamiddiab.charity.frameWork.PreferenceManager
 class HomeViewModel(application: Application) : CharityViewModel(application) {
     private val preferencesHelper = PreferenceManager(application.applicationContext)
     var fakeTime: Long = 0
-   // var counterForFakeTime: Int = 0
+
+    // var counterForFakeTime: Int = 0
     //////////////////////////////////
     val moneyCurrentValue: Int get() = preferencesHelper.getMoneyValue()
     val helpCurrentValue: Int get() = preferencesHelper.getHelpValue()
@@ -24,8 +25,9 @@ class HomeViewModel(application: Application) : CharityViewModel(application) {
     val prayMaxValue: Int get() = preferencesHelper.getPrayValueMax()
     val smileMaxValue: Int get() = preferencesHelper.getSmileValueMax()
     val shareMaxValue: Int get() = preferencesHelper.getShareValueMax()
-///////////////////////////////////////////////////////////////////////
-val moneyTotalValue: Int get() = preferencesHelper.getMoneyValueTotal()
+
+    ///////////////////////////////////////////////////////////////////////
+    val moneyTotalValue: Int get() = preferencesHelper.getMoneyValueTotal()
     val helpTotalValue: Int get() = preferencesHelper.getHelpValueTotal()
     val kindTotalValue: Int get() = preferencesHelper.getKindValueTotal()
     val prayTotalValue: Int get() = preferencesHelper.getPrayValueTotal()
@@ -33,6 +35,7 @@ val moneyTotalValue: Int get() = preferencesHelper.getMoneyValueTotal()
     val shareTotalValue: Int get() = preferencesHelper.getShareValueTotal()
 
     val savedTime: Long get() = preferencesHelper.getPreviousSavedTime()
+
     ////////////////////////////
     fun setMoneyMaxValue(moneyValueMax: Int) {
         preferencesHelper.setMoneyValueMax(moneyValueMax)
@@ -136,55 +139,91 @@ val moneyTotalValue: Int get() = preferencesHelper.getMoneyValueTotal()
     }
 
 
-    fun firstStartToApp():Boolean {
-        return moneyMaxValue == -1 &&
+    fun firstStartToApp(): Boolean {
+        return if (moneyMaxValue == -1 &&
+            helpMaxValue == -1 &&
+            kindMaxValue == -1 &&
+            prayMaxValue == -1 &&
+            smileMaxValue == -1 &&
+            shareMaxValue == -1
+        ) {
+            initializeMaxValuesToZero()
+            true
+        } else {
+            false
+        }
+        /*return moneyMaxValue == -1 &&
                 helpMaxValue == -1 &&
                 kindMaxValue == -1 &&
                 prayMaxValue == -1 &&
                 smileMaxValue == -1 &&
-                shareMaxValue == -1
+                shareMaxValue == -1*/
     }
-    fun showMoneyDone():Int{
-      return if (moneyMaxValue == moneyCurrentValue && moneyCurrentValue != 0) {
-           View.VISIBLE
-       } else {
-           View.GONE
-       }
+
+    fun showMoneyDone(): Int {
+        return if (moneyMaxValue == moneyCurrentValue && moneyCurrentValue != 0) {
+            View.VISIBLE
+        } else {
+            View.GONE
+        }
     }
-    fun showHelpDone():Int{
+
+    fun showHelpDone(): Int {
         return if (helpMaxValue == helpCurrentValue && helpCurrentValue != 0) {
             View.VISIBLE
         } else {
             View.GONE
         }
     }
-    fun showKindDone():Int{
+
+    fun showKindDone(): Int {
         return if (kindMaxValue == kindCurrentValue && kindCurrentValue != 0) {
             View.VISIBLE
         } else {
             View.GONE
         }
     }
-    fun showPrayDone():Int{
+
+    fun showPrayDone(): Int {
         return if (prayMaxValue == prayCurrentValue && prayCurrentValue != 0) {
             View.VISIBLE
         } else {
             View.GONE
         }
     }
-    fun showSmileDone():Int{
+
+    fun showSmileDone(): Int {
         return if (smileMaxValue == smileCurrentValue && smileCurrentValue != 0) {
             View.VISIBLE
         } else {
             View.GONE
         }
     }
-    fun showShareDone():Int{
+
+    fun showShareDone(): Int {
         return if (shareMaxValue == shareCurrentValue && shareCurrentValue != 0) {
             View.VISIBLE
         } else {
             View.GONE
         }
+    }
+
+    private fun initializeMaxValuesToZero() {
+        setMoneyMaxValue(0)
+        setHelpMaxValue(0)
+        setKindMaxValue(0)
+        setSmileMaxValue(0)
+        setShareMaxValue(0)
+        setPrayMaxValue(0)
+    }
+
+    fun initializeCurrentValuesToZero() {
+        setCurrentMoneyValue(0)
+        setCurrentHelpValue(0)
+        setCurrentPrayValue(0)
+        setCurrentKindValue(0)
+        setCurrentSmileValue(0)
+        setCurrentShareValue(0)
     }
 
 }
